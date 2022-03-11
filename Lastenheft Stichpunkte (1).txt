@@ -1,0 +1,69 @@
+Lastenheft-Stichpunkte
+
+1. Bank:
+• Daten für Kunden, Angestellte und Konten sowie Kontobewegungen dauerhaft speichern
+• alle Veränderung an gespeicherten Daten protokollieren
+• Sparkonto einrichten
+• Girokonto einrichten
+• Konto löschen
+• Angestellte löschen
+• Datenverbindung anzeigen
+• Kunden suchen
+• Kontonummer anzeigen
+• Angestellten suchen
+• Kundenname anzeigen
+• Angestelltenname anzeigen
+• Bank Informationen anzeigen
+• Konto suchen
+
+2. Kunden:
+• Name, PIN für Zugriff auf Konto (jedes Konto genau einen Besitzer)
+• Einzahlen
+• Abheben
+• Kontostand erfragen
+• Kontoauszüge erstellen
+• Konto eröffnen (beliebig viele)
+
+3. Angestellte:
+• Name, PIN
+• Kunden anlegen
+• Kunden löschen
+• Konten für Kunden anlegen
+• Konten löschen
+• neue Angestellte anlegen
+• andere Angestellte löschen
+• Einzahlung / Überweisung abheben für Kunden
+• Konten verzinsen
+
+4. Konto:
+• Kontostand, Kontonummer, Besitzer, Verbindung
+• Kontostand anzeigen
+• Abheben
+• Kontonummer anzeigen
+• Eigentümer anzeigen
+• Einzahlen
+• Auszugdaten erstellen
+
+5. Girokonto: (erbt von Konto)
+• Überziehungsrahmen
+• Überziehungsrahmen anzeigen
+
+6. Sparkonto: (erbt von Konto)
+• Zinssatz
+• Zinssatz anzeigen
+
+Verbindung zur Datenbank
+Fenster 
+
+
+
+
+
+
+
+
+
+
+
+
+
