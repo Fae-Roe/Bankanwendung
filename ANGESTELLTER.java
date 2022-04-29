@@ -10,9 +10,26 @@ public class ANGESTELLTER
     private KUNDE aktKunde;
     private BANK bank;
     private KONTO aktKonto;
-    public ANGESTELLTER(String s, int i, BANK b)
+    public ANGESTELLTER(String name, int pin, BANK bankname)
     {
-        
+        bank = bankname;
     }
 
+    public int SparkonotoEinrichten(double betrag)
+    {
+        
+        return 0;
+    }
+    
+    public int GirokontoEinrichten(double betrag)
+    {
+        
+        return 0;
+    }
+    
+    public boolean KontoLoeschen()
+    {
+        
+        return true;
+    }
 }
