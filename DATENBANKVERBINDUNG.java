@@ -16,7 +16,7 @@ public class DATENBANKVERBINDUNG
    DB_MySQL db;
 
     /**
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
+     * Konstruktor fï¿½r Objekte der Klasse DATENBANKVERBINDUNG
      */
     public DATENBANKVERBINDUNG()
     {
