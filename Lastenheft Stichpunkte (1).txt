@@ -76,6 +76,8 @@ Bei einem Girokonto soll noch hinzukommen, dass man in Notfällen mehr abheben k
 
 Bei dem Sparkonto gibt es noch zusätzlich einen Zinssatz der mit dem Kontostand berechnet werden muss. 
 
+Pflichtenheft?
+
 
 
 
