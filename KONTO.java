@@ -10,4 +10,43 @@ public abstract class KONTO
     protected int kontonummer;
     private KUNDE besitzer;
     protected DATENBANKVERBINDUNG verbindung;
+    
+    public KONTO(int kontonr, double kontostandN, KUNDE besitzerN)
+    {
+      kontonummer = kontonr;
+      kontostand = kontostandN;
+      besitzer = besitzerN;
+    }
+    
+    public KONTO(int kontonr, KUNDE besitzerN)
+    {
+        kontonummer = kontonr;
+        besitzer = besitzerN;
+    }
+    
+    public boolean Abheben()
+    {
+        return false;
+    }
+    
+    public int KontonummerGeben()
+    {
+        return kontonummer;
+    }
+    
+    public double KontostandGeben()
+    {
+        return kontostand;
+    }
+    
+    public KUNDE EigentuemerGeben()
+    {
+        return besitzer;
+    }
+    
+    public void Einzahlen(double betrag)
+    {
+        kontostand = kontostand + betrag;
+    }
+    
 }

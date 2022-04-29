@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse KUNDE.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 29.04.2022
  */
 public class KUNDE
 {
