@@ -5,7 +5,7 @@
  * @author Lena Weeß 
  * @version 01.04.2022
  */
-public class ANGESTELLTER
+public class ANGESTELLTER extends PERSON
 {
     private KUNDE aktKunde;
     private BANK bank;

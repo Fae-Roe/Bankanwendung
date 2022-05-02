@@ -5,7 +5,7 @@
  * @author Lena Weeß 
  * @version 29.04.2022
  */
-public class KUNDE
+public class KUNDE extends PERSON
 {
     KUNDE aktKonto;
     public KUNDE(String name, int pin)
