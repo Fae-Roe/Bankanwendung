@@ -10,4 +10,5 @@ public abstract class KONTO
     protected int kontonummer;
     private KUNDE besitzer;
     protected DATENBANKVERBINDUNG verbindung;
+    
 }

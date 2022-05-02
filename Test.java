@@ -2,8 +2,8 @@
 /**
  * Beschreiben Sie hier die Klasse Test.
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author Lena Weeß 
+ * @version 29.04.2022
  */
 public class Test
 {
