@@ -2,8 +2,8 @@
 /**
  * Beschreiben Sie hier die Klasse KUNDE.
  * 
- * @author Lena Weeß 
- * @version 29.04.2022
+ * @author Jasmin Geyer 
+ * @version 02.05.2022
  */
 public class KUNDE extends PERSON
 {
@@ -15,13 +15,11 @@ public class KUNDE extends PERSON
     
     public double KontostandGeben()
     {
-        
         return 0;
     }
     
     public boolean Abheben(double betrag)
     {
-        
         return true;
     }
     
@@ -32,8 +30,7 @@ public class KUNDE extends PERSON
     }
     
     public double KontostandErfragen()
-    {
-        
+    {        
         return 0;
     }
     
@@ -44,7 +41,6 @@ public class KUNDE extends PERSON
     
     public boolean AktkontoSetzen(int pin)
     {
-        
         return true;
     }
     
