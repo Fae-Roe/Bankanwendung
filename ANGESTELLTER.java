@@ -32,32 +32,46 @@ public class ANGESTELLTER extends PERSON
         
         return true;
     }
-    public String AngestellterLoeschen()
+    
+    public String AngestellterLoeschen(String name)
     {
+        
         return null;
     }
-    public boolean KundeWaehlen()
+    
+    public boolean KundeWaehlen(String name)
     {
+        
         return true;
     }
-    public String NeuenKundenEinrichten()
+    
+    public String NeuenKundenEinrichten(String name, int pin)
     {
+        
         return null;
     }
+    
     public KUNDE AktkundeGeben()
     {
-     return null;
+     
+        return null;
     }
+    
     public void KontoSetzen()
     {
         
     }
+    
     public String KundenLoeschen()
     {
+        
         return null;
     }
-    public String NeuenAngestelltenEinrichten()
+    
+    public String NeuenAngestelltenEinrichten(String name, int pin)
     {
+        
         return null;
     }
+    
     }
