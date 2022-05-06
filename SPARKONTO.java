@@ -8,18 +8,17 @@
 public class SPARKONTO extends KONTO
 {
     double zinssatz;
-    public SPARKONTO(int kontnummer, double kontostand, KUNDE besitzr)
+    public SPARKONTO(int kontonummer, double kontostand, KUNDE besitzer)
     {
- 
-        besitzer = besitzr;
-        kontnummer = kontonummer;
-        kontostand = kontostand;
+        super(kontonummer, kontostand, besitzer);
+        
         
     }
     
-    public SPARKONTO(int kontonr, double zinssatz, double kontostN, KUNDE besitzr)
+    public SPARKONTO(int kontonummer, double zinssatz, double kontostand, KUNDE besitzer)
     {
-       besitzer = besitzr;
+       super(kontonummer, kontostand, besitzer);
+       this.zinssatz =  zinssatz;
 
     }
 
