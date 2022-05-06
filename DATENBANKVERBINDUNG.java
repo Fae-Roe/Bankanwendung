@@ -13,7 +13,7 @@
  */
 public class DATENBANKVERBINDUNG
 {
-
+    DB_MySQL db;
 
     public DATENBANKVERBINDUNG()
     {
