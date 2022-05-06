@@ -17,10 +17,14 @@ public class DATENBANKVERBINDUNG
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * Konstruktor fuer Objekte der Klasse DATENBANKVERBINDUNG
 =======
      * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
 >>>>>>> f65d928abcb78db34e7358c99d80b55a7b72ea6f
+=======
+     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
+>>>>>>> 07cf5d0f3b425840e2848405b0f3c1b5c9828af0
      */
     public DATENBANKVERBINDUNG()
     {
