@@ -6,17 +6,10 @@
   */
 public abstract class KONTO
    {
-<<<<<<< HEAD
-    public double kontostand;
+    protected double kontostand;
     public int kontonummer;
     public KUNDE besitzer;
     public DATENBANKVERBINDUNG verbindung;
-=======
-    protected double kontostand;
-    protected int kontonummer;
-    public KUNDE besitzer;
-    protected DATENBANKVERBINDUNG verbindung;
->>>>>>> 25accf311ad565552881796ca8b3f862c6d57419
     
     public KONTO(int kontonr, double kstand, KUNDE bes)
     {
