@@ -8,8 +8,31 @@
 public class GIROKONTO extends KONTO
 {
     double ueberziehungsrahmen;
-    public GIROKONTO()
+    public GIROKONTO(int kontonr, double uzr, KUNDE bes)
     {
-        
+        super(kontonr, bes);
+        kontonummer = kontonr;
+        ueberziehungsrahmen = uzr;
+        besitzer = bes;
+    }
+    
+    public GIROKONTO(int kontonr, double kstand, double uzr, KUNDE bes)
+    {
+        super(kontonr, kstand, bes);
+        kontonummer = kontonr;
+        ueberziehungsrahmen = uzr;
+        kontostand = kstand;
+        besitzer = bes;
+    }
+    
+    public boolean Abheben(double kstand)
+    {
+        if(kstand < kontostand) return true;
+        else return false;
+    }
+    
+    public double UeberziehungsrahmenGeben()
+    {
+        return ueberziehungsrahmen;
     }
 }

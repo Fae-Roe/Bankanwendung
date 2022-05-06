@@ -13,6 +13,7 @@ public class ANGESTELLTER extends PERSON
     public ANGESTELLTER(String name, int pin, BANK bankname)
     {
         bank = bankname;
+        
     }
 
     public int SparkonotoEinrichten(double betrag)
