@@ -81,8 +81,9 @@ public class DATENBANKVERBINDUNG
         return pin;
     }
 
-    public void PINAendern(String benutzername, int pNeu)
+    public void PINaendern(String benutzername, int pNeu)
     {
         db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
+    
 }
