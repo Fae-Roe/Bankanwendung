@@ -14,10 +14,6 @@
 public class DATENBANKVERBINDUNG
 {
     DB_MySQL db;
-<<<<<<< HEAD
-=======
-
->>>>>>> a7e2c5651c86be71add6a93f1677d30442ba689c
     public DATENBANKVERBINDUNG()
     {
         db = new DB_MySQL();
