@@ -15,29 +15,7 @@ public class DATENBANKVERBINDUNG
 {
     DB_MySQL db;
 
-    /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     * Konstruktor fuer Objekte der Klasse DATENBANKVERBINDUNG
-=======
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
->>>>>>> f65d928abcb78db34e7358c99d80b55a7b72ea6f
-=======
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
->>>>>>> 07cf5d0f3b425840e2848405b0f3c1b5c9828af0
-=======
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
->>>>>>> 233c5432c077f96abb7a116a11223c554ad867aa
-=======
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
->>>>>>> 233c5432c077f96abb7a116a11223c554ad867aa
-=======
-     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
->>>>>>> 4122b6a97158fa2ca13eff9ea8d06030726772a3
-     */
+
     public DATENBANKVERBINDUNG()
     {
         db = new DB_MySQL();
