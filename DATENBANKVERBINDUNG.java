@@ -85,6 +85,7 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
+<<<<<<< HEAD
 
     public int KontonummerGeben()
     {
@@ -102,4 +103,7 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE MUSIK SET `Kontonummer` = '" + kNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
+=======
+    
+>>>>>>> 583eb2b9c13a83d80f88d6bc51b8653bb623d648
 }
