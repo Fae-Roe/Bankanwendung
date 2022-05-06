@@ -6,16 +6,16 @@
   */
 public abstract class KONTO
    {
-    protected double kontostand;
-    protected int kontonummer;
-    private KUNDE besitzer;
-    protected DATENBANKVERBINDUNG verbindung;
+    public double kontostand;
+    public int kontonummer;
+    public KUNDE besitzer;
+    public DATENBANKVERBINDUNG verbindung;
     
-    public KONTO(int kontonr, double kontostandN, KUNDE besitzerN)
+    public KONTO(int kontonr, double kstand, KUNDE bes)
     {
       kontonummer = kontonr;
-      kontostand = kontostandN;
-      besitzer = besitzerN;
+      kontostand = kstand;
+      besitzer = bes;
     }
     
     public KONTO(int kontonr, KUNDE besitzerN)
@@ -26,7 +26,7 @@ public abstract class KONTO
     
     public boolean Abheben()
     {
-        return false;
+        return Abheben();
     }
     
     public int KontonummerGeben()

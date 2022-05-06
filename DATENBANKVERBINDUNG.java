@@ -13,7 +13,6 @@
  */
 public class DATENBANKVERBINDUNG
 {
-    DB_MySQL db;
 
     /**
 <<<<<<< HEAD
