@@ -13,9 +13,10 @@
  */
 public class DATENBANKVERBINDUNG
 {
-   DB_MySQL db;
+    DB_MySQL db;
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
      * Konstruktor fuer Objekte der Klasse DATENBANKVERBINDUNG
@@ -25,13 +26,16 @@ public class DATENBANKVERBINDUNG
 =======
      * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
 >>>>>>> 07cf5d0f3b425840e2848405b0f3c1b5c9828af0
+=======
+     * Konstruktor für Objekte der Klasse DATENBANKVERBINDUNG
+>>>>>>> 233c5432c077f96abb7a116a11223c554ad867aa
      */
     public DATENBANKVERBINDUNG()
     {
         db = new DB_MySQL();
-       Verbinden();
+        Verbinden();
     }
-    
+
     private void Verbinden()
     {
         boolean i;
@@ -45,7 +49,7 @@ public class DATENBANKVERBINDUNG
             System.out.println("Verbindung fehlgeschlagen");
         }
     }
-    
+
     public void VerbindungSchliesen()
     {
         boolean i;
@@ -59,22 +63,38 @@ public class DATENBANKVERBINDUNG
             System.out.println("Verbindung trennen fehlgeschlagen");
         }
     }
-    
+
     public int AlterGeben()
     {
-      int alt = -1;
-      //verwende den Namen test, der ist in der Tabelle hinterlegt
-      db.conAbfrage("SELECT `Alter` FROM `MUSIK` WHERE Name = 'test'");
-      if(db.neuerDatensatz())
-      {
-           alt = db.getInt(1);
+        int alt = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `Alter` FROM `MUSIK` WHERE Name = 'test'");
+        if(db.neuerDatensatz())
+        {
+            alt = db.getInt(1);
         }
-      return alt;
+        return alt;
     }
-    
- 
+
     public void AlterAendern(String benutzername, int aNeu)
     {
         db.conExecute("UPDATE MUSIK SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
+    }
+
+    public int PINGeben()
+    {
+        int pin = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `PIN` FROM `MUSIK` WHERE Name = 'test'");
+        if(db.neuerDatensatz())
+        {
+            pin = db.getInt(1);
+        }
+        return pin;
+    }
+
+    public void PINAendern(String benutzername, int pNeu)
+    {
+        db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
 }
