@@ -101,8 +101,27 @@ public class DATENBANKVERBINDUNG
         return pin;
     }
 
-    public void PINAendern(String benutzername, int pNeu)
+    public void PINaendern(String benutzername, int pNeu)
     {
         db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
+
+
+    public int KontonummerGeben()
+    {
+        int pin = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `Kontonummer` FROM `MUSIK` WHERE Name = 'test'");
+        if(db.neuerDatensatz())
+        {
+            pin = db.getInt(1);
+        }
+        return pin;
+    }
+
+    public void KontonummerAendern(String benutzername, int kNeu)
+    {
+        db.conExecute("UPDATE MUSIK SET `Kontonummer` = '" + kNeu + "' WHERE Name = '" + benutzername + "'"); 
+    }
+
 }
