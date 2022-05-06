@@ -8,7 +8,7 @@ public abstract class KONTO
    {
     protected double kontostand;
     protected int kontonummer;
-    private KUNDE besitzer;
+    public KUNDE besitzer;
     protected DATENBANKVERBINDUNG verbindung;
     
     public KONTO(int kontonr, double kontostandN, KUNDE besitzerN)
