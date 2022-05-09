@@ -23,7 +23,7 @@ public class DATENBANKVERBINDUNG
     private void Verbinden()
     {
         boolean i;
-        i=db.conOeffnen("db4free.net:3306/klasse9ab", "adklass", "42test.kl");
+        i=db.conOeffnen("challenger218.mydhp.de:3306/bank", "root", "kamisama123");
         if(i)
         {
             System.out.println("Verbindung erfolgreich");
