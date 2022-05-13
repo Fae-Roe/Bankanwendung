@@ -102,14 +102,14 @@ public class DATENBANKVERBINDUNG
     
     public int zinsenGeben(int kontonummer)
     {
-        int kont = -1;
+        int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
         db.conAbfrage("SELECT `Zinsen` FROM `konto` WHERE kontonummer = 'kontonummer'");
         if(db.neuerDatensatz())
         {
-            kont = db.getInt(1);
+            zins = db.getInt(1);
         }
-        return kont;
+        return zins;
     }
 
     public void zinsenAendern(int kontonummer, int sNeu)
