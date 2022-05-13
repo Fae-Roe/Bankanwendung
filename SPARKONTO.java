@@ -11,32 +11,28 @@ public class SPARKONTO extends KONTO
     public SPARKONTO(int kontonummer, double kontostand, KUNDE besitzer)
     {
         super(kontonummer, kontostand, besitzer);
-        
-        
     }
     
     public SPARKONTO(int kontonummer, double zinssatz, double kontostand, KUNDE besitzer)
     {
        super(kontonummer, kontostand, besitzer);
        this.zinssatz =  zinssatz;
-
     }
 
     public void Verzinsen()
     {
-        
+        kontostand = kontostand + kontostand * zinssatz;
     }
     
     public double ZinssatzGeben()
     {
-        return 0.0;
-    
+        return zinssatz;
     }
     
-    public boolean Abhebeben(double newkontostand)
+    public boolean Abheben(double newkontostand)
     {
-        return true;
-    
+        if(newkontostand < kontostand) return true;
+        else return false;
     }
 
 }

@@ -13,7 +13,7 @@ public class GIROKONTO extends KONTO
         super(kontonr, bes);
         kontonummer = kontonr;
         ueberziehungsrahmen = uzr;
-        besitzer = bes;
+        besitzer = besitzer;
     }
     
     public GIROKONTO(int kontonr, double kstand, double uzr, KUNDE bes)
@@ -25,9 +25,9 @@ public class GIROKONTO extends KONTO
         besitzer = bes;
     }
     
-    public boolean Abheben(double kstand)
+    public boolean Abheben(double newkontostand)
     {
-        if(kstand < kontostand) return true;
+        if(newkontostand < kontostand) return true;
         else return false;
     }
     
