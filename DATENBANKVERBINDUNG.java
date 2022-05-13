@@ -65,11 +65,11 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
 
-    public int PINGeben(int kontonummer)
+    public int pinGeben(int pin)
     {
-        int pin = -1;
+    
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `PIN` FROM `konto` WHERE Name = 'Name'");
+        db.conAbfrage("SELECT `pin` FROM `konto` WHERE Name = 'Name'");
         if(db.neuerDatensatz())
         {
             pin = db.getInt(1);
@@ -77,9 +77,9 @@ public class DATENBANKVERBINDUNG
         return pin;
     }
 
-    public void PINaendern(int kontonummer, int pNeu)
+    public void pinAendern(int pin, int pNeu)
     {
-        db.conExecute("UPDATE konto SET `PIN` = '" + pNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
     
