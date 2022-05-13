@@ -64,7 +64,9 @@ public class ANGESTELLTER extends PERSON
     
     public void KontoSetzen()
     {
-        
+        double kontostand = aktKonto.kontostand;
+        int kontonummer = aktKonto.kontonummer;
+        KUNDE besitzer = aktKonto.besitzer;
     }
     
     public String KundenLoeschen()
