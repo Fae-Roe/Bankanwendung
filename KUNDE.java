@@ -46,7 +46,8 @@ public class KUNDE extends PERSON
     
     public boolean aktkontoSetzen(int PIN)
     {
-     return true;
+       aktKonto.pin = PIN;
+       return true;
     
     }
     

@@ -29,8 +29,11 @@ public class ANGESTELLTER extends PERSON
     
     public boolean KontoLoeschen()
     {
-        aktKonto = null;
-        if(aktKonto == null) return true;
+        if(aktKonto != null)
+        {
+            aktKonto = null;
+            return true;
+        }
         else return false;
     }
     
@@ -47,11 +50,11 @@ public class ANGESTELLTER extends PERSON
         else return false;
     }
     
-    public String NeuenKundenEinrichten(String newname, int newpin)
+    public String NeuenKundenEinrichten(String name, int pin)
     {
-        aktKunde.name = newname;
-        aktKunde.pin = newpin;
-        return name;
+        aktKunde.name = name;
+        aktKunde.pin = pin;
+        return aktKunde.name;
     }
     
     public KUNDE AktkundeGeben()
