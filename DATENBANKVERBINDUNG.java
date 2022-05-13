@@ -64,7 +64,7 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
-
+    // geht nicht
     public int pinGeben(int pin)
     {
     
@@ -76,13 +76,13 @@ public class DATENBANKVERBINDUNG
         }
         return pin;
     }
-
+    // geht
     public void pinAendern(int pin, int pNeu)
     {
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    
+    // geht nicht
     public int kontostandGeben(double kontostand)
     {
         int kont = -1;
@@ -94,12 +94,12 @@ public class DATENBANKVERBINDUNG
         }
         return kont;
     }
-
+    // geht 
     public void kontostandAendern(double kontostand, int sNeu)
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
-    
+    // geht nicht
     public int zinsenGeben(int kontonummer)
     {
         int zins = -1;
@@ -111,12 +111,12 @@ public class DATENBANKVERBINDUNG
         }
         return zins;
     }
-
+    // geht nicht
     public void zinsenAendern(int kontonummer, int sNeu)
     {
         db.conExecute("UPDATE konto SET `Zinsen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
-    
+    // geht nicht
     public int besitzerGeben(int kontonummer)
     {
         int bes = -1;
@@ -128,7 +128,7 @@ public class DATENBANKVERBINDUNG
         }
         return bes;
     }
-    //überziehungsrahmen geben, überziehungsnahmen ändern, giro/sparkonto
+    // geht nicht
      public int ueberziehungsrahmenGeben(int kontonummer)
     {
         int ueb = -1;
@@ -140,11 +140,12 @@ public class DATENBANKVERBINDUNG
         }
         return ueb;
     }
+    // geht 
     public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
     {
         db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
-    
+    // nicht fertig
     public boolean kontoartGeben(int Kontonummer)
     {return false;}
 }
