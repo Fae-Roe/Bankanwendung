@@ -83,11 +83,11 @@ public class DATENBANKVERBINDUNG
     }
 
     
-    public int kontostandGeben(int kontonummer)
+    public int kontostandGeben(double kontostand)
     {
         int kont = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `kontonummer` FROM `konto` WHERE kontonummer = 'kontonummer'");
+        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontostand = 'kontostand'");
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
@@ -95,9 +95,9 @@ public class DATENBANKVERBINDUNG
         return kont;
     }
 
-    public void kontostandAendern(int kontonummer, int sNeu)
+    public void kontostandAendern(double kontostand, int sNeu)
     {
-        db.conExecute("UPDATE konto SET `kontonummer` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
     
     public int zinsenGeben(int kontonummer)
