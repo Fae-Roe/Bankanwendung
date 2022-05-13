@@ -64,12 +64,12 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     }
-    // geht nicht
+    // geht 
     public int pinGeben(int pin)
     {
     
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `pin` FROM `konto` WHERE Name = 'Name'");
+        db.conAbfrage("SELECT `pin` FROM `konto` WHERE pin = 'pin'");
         if(db.neuerDatensatz())
         {
             pin = db.getInt(1);
@@ -83,7 +83,7 @@ public class DATENBANKVERBINDUNG
     }
 
     // geht nicht
-    public int kontostandGeben(double kontostand)
+    public int kontostandGeben(int kontostand)
     {
         int kont = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -100,11 +100,11 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
     // geht nicht
-    public int zinsenGeben(int kontonummer)
+    public int zinssatzGeben(int kontonummer)
     {
         int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Zinsen` FROM `konto` WHERE kontonummer = 'kontonummer'");
+        db.conAbfrage("SELECT `zinssatz` FROM `konto` WHERE zinssatz = 'zinssatz'");
         if(db.neuerDatensatz())
         {
             zins = db.getInt(1);
