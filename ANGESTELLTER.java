@@ -16,7 +16,7 @@ public class ANGESTELLTER extends PERSON
         
     }
 
-    public int SparkonotoEinrichten(double betrag)
+    public int SparkontoEinrichten(double betrag)
     {
         
         return 0;
@@ -24,38 +24,39 @@ public class ANGESTELLTER extends PERSON
     
     public int GirokontoEinrichten(double betrag)
     {
-        
         return 0;
     }
     
     public boolean KontoLoeschen()
     {
-        
-        return true;
+        aktKonto = null;
+        if(aktKonto == null) return true;
+        else return false;
     }
     
     public String AngestellterLoeschen(String name)
     {
-        
-        return null;
+        name = null;
+        pin = 0;
+        return name;
     }
     
     public boolean KundeWaehlen(String name)
     {
-        
-        return true;
+        if(aktKunde.name == name) return true;
+        else return false;
     }
     
-    public String NeuenKundenEinrichten(String name, int pin)
+    public String NeuenKundenEinrichten(String newname, int newpin)
     {
-        
-        return null;
+        aktKunde.name = newname;
+        aktKunde.pin = newpin;
+        return name;
     }
     
     public KUNDE AktkundeGeben()
     {
-     
-        return null;
+        return aktKunde;
     }
     
     public void KontoSetzen()
@@ -65,14 +66,15 @@ public class ANGESTELLTER extends PERSON
     
     public String KundenLoeschen()
     {
-        
-        return null;
+        aktKunde = null;
+        return aktKunde.name;
     }
     
-    public String NeuenAngestelltenEinrichten(String name, int pin)
+    public String NeuenAngestelltenEinrichten(String newname, int newpin)
     {
-        
-        return null;
+        name = newname;
+        pin = newpin;
+        return name;
     }
     
     }

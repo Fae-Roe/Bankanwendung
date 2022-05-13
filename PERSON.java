@@ -6,6 +6,6 @@
  */
 public abstract class PERSON
 {
-    String name;
-    int pin;
+    public String name;
+    public int pin;
 }

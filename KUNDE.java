@@ -30,8 +30,7 @@ public class KUNDE extends PERSON
     
     public void Einzahlen(double betrag)
     {
-        
-        
+       
     }
     
     public double KontostandErfragen()
