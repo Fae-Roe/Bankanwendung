@@ -8,4 +8,11 @@ public abstract class PERSON
 {
     public String name;
     public int pin;
+    DATENBANKVERBINDUNG db;
+    
+    public PERSON(String newname, int newpin)
+    {
+        name = newname;
+        pin = newpin;
+    }
 }

@@ -10,10 +10,11 @@ public class ANGESTELLTER extends PERSON
     private KUNDE aktKunde;
     private BANK bank;
     private KONTO aktKonto;
-    public ANGESTELLTER(String name, int pin, BANK bankname)
+    public ANGESTELLTER(String newname, int newpin)
     {
-        bank = bankname;
-        
+        super(newname,newpin);
+        name = newname;
+        pin = newpin;
     }
 
     public int SparkontoEinrichten(double betrag)

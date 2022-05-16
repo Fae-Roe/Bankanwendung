@@ -15,7 +15,7 @@ public class KUNDE extends PERSON
     KUNDE aktKonto;
     public KUNDE(String name, int pin)
     {
-        
+        super(name,pin);
     }
     
     public double KontostandGeben()
