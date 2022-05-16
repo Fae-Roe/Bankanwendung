@@ -48,22 +48,24 @@ public class DATENBANKVERBINDUNG
         }
     }
 
-    public int AlterGeben()
-    {
-        int alt = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
-        if(db.neuerDatensatz())
-        {
-            alt = db.getInt(1);
-        }
-        return alt;
-    }
+    // public int AlterGeben()
+    // {
+        // int alt = -1;
+        // //verwende den Namen test, der ist in der Tabelle hinterlegt
+        // db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
+        // if(db.neuerDatensatz())
+        // {
+            // alt = db.getInt(1);
+        // }
+        // return alt;
+    // }
 
-    public void AlterAendern(String benutzername, int aNeu)
-    {
-        db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
-    }
+    // public void AlterAendern(String benutzername, int aNeu)
+    // {
+        // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
+    // }
+    
+    
     // geht 
     public int pinGeben(int pin)
     {
@@ -114,7 +116,7 @@ public class DATENBANKVERBINDUNG
     // geht nicht
     public void zinsenAendern(int kontonummer, int sNeu)
     {
-        db.conExecute("UPDATE konto SET `Zinsen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `zinsen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
     // geht nicht
     public int besitzerGeben(int kontonummer)
