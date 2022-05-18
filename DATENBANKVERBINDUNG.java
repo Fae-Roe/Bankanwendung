@@ -87,7 +87,7 @@ public class DATENBANKVERBINDUNG
     {
         int kont = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Kontonummer` FROM `MUSIK` WHERE Kontonummer = 'Kontonummer'");
+        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = 'kontonummer'");
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
