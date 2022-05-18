@@ -48,42 +48,44 @@ public class DATENBANKVERBINDUNG
         }
     }
 
-    public int AlterGeben()
-    {
-        int alt = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Alter` FROM `MUSIK` WHERE Name = 'test'");
-        if(db.neuerDatensatz())
-        {
-            alt = db.getInt(1);
-        }
-        return alt;
-    }
+    // public int AlterGeben()
+    // {
+        // int alt = -1;
+        // //verwende den Namen test, der ist in der Tabelle hinterlegt
+        // db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
+        // if(db.neuerDatensatz())
+        // {
+            // alt = db.getInt(1);
+        // }
+        // return alt;
+    // }
 
-    public void AlterAendern(String benutzername, int aNeu)
+    // public void AlterAendern(String benutzername, int aNeu)
+    // {
+        // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
+    // }
+    
+    
+    // geht 
+    public int pinGeben(int pin)
     {
-        db.conExecute("UPDATE MUSIK SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
-    }
-
-    public int PINGeben(int Kontonummer)
-    {
-        int pin = -1;
+    
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `PIN` FROM `MUSIK` WHERE Name = 'Name'");
+        db.conAbfrage("SELECT `pin` FROM `konto` WHERE pin = 'pin'");
         if(db.neuerDatensatz())
         {
             pin = db.getInt(1);
         }
         return pin;
     }
-
-    public void PINaendern(int Kontonummer, int pNeu)
+    // geht
+    public void pinAendern(int pin, int pNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Kontonummer = '" + Kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    
-    public int KontostandGeben(int Kontonummer)
+    // geht nicht
+    public int kontostandGeben(int kontostand)
     {
         int kont = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -94,57 +96,58 @@ public class DATENBANKVERBINDUNG
         }
         return kont;
     }
-
-    public void KontostandAendern(int Kontonummer, int sNeu)
+    // geht 
+    public void kontostandAendern(double kontostand, int sNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `Kontonummer` = '" + sNeu + "' WHERE Kontonummer = '" + Kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
-    
-    public int ZinsenGeben(int Kontonummer)
+    // geht nicht
+    public int zinssatzGeben(int kontonummer)
     {
-        int kont = -1;
+        int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Zinsen` FROM `MUSIK` WHERE Kontonummer = 'Kontonummer'");
+        db.conAbfrage("SELECT `zinssatz` FROM `konto` WHERE zinssatz = 'zinssatz'");
         if(db.neuerDatensatz())
         {
-            kont = db.getInt(1);
+            zins = db.getInt(1);
         }
-        return kont;
+        return zins;
     }
-
-    public void ZinsenAendern(int Kontonummer, int sNeu)
+    // geht nicht
+    public void zinsenAendern(int kontonummer, int sNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `Zinsen` = '" + sNeu + "' WHERE Kontonummer = '" + Kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `zinsen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
-    
-    public int BesitzerGeben(int Kontonummer)
+    // geht nicht
+    public int besitzerGeben(int kontonummer)
     {
         int bes = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Besitzer` FROM `MUSIK` WHERE Kontonummer = 'Kontonummer'");
+        db.conAbfrage("SELECT `besitzer` FROM `konto` WHERE kontonummer = 'kontonummer'");
         if(db.neuerDatensatz())
         {
             bes = db.getInt(1);
         }
         return bes;
     }
-    //überziehungsrahmen geben, überziehungsnahmen ändern, giro/sparkonto
-     public int UeberziehungsrahmenGeben(int Kontonummer)
+    // geht nicht
+     public int ueberziehungsrahmenGeben(int kontonummer)
     {
         int ueb = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Ueberziehungsrahmen` FROM `MUSIK` WHERE Kontonummer = 'Kontonummer'");
+        db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = 'kontonummer'");
         if(db.neuerDatensatz())
         {
             ueb = db.getInt(1);
         }
         return ueb;
     }
-    public void UeberziehungsrahmenAendern(int Kontonummer, int sNeu)
+    // geht 
+    public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `Ueberziehungsrahmen` = '" + sNeu + "' WHERE Kontonummer = '" + Kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
-    
-    public boolean KontoartGeben(int Kontonummer)
+    // nicht fertig
+    public boolean kontoartGeben(int Kontonummer)
     {return false;}
 }

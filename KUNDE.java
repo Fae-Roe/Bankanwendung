@@ -15,7 +15,7 @@ public class KUNDE extends PERSON
     KUNDE aktKonto;
     public KUNDE(String name, int pin)
     {
-        
+        super(name,pin);
     }
     
     public double KontostandGeben()
@@ -30,8 +30,7 @@ public class KUNDE extends PERSON
     
     public void Einzahlen(double betrag)
     {
-        
-        
+       
     }
     
     public double KontostandErfragen()
@@ -47,7 +46,8 @@ public class KUNDE extends PERSON
     
     public boolean aktkontoSetzen(int PIN)
     {
-     return true;
+       aktKonto.pin = PIN;
+       return true;
     
     }
     

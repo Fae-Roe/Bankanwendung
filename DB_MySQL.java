@@ -70,509 +70,509 @@ import java.sql.Statement;
  */
 public class DB_MySQL {
 
-	public Connection db = null;
-	public ResultSet res = null;
+    public Connection db = null;
+    public ResultSet res = null;
 
-	public DB_MySQL() {
-	}
+    public DB_MySQL() {
+    }
 
-	/**
-	 * oeffnen der Datenbank
-	 * 
-	 * @param datenbank
-	 * @param user
-	 * @param kennwort
-	 * @return
-	 */
-	public boolean conOeffnen(String datenbank, String user, String kennwort) {
+    /**
+     * oeffnen der Datenbank
+     * 
+     * @param datenbank
+     * @param user
+     * @param kennwort
+     * @return
+     */
+    public boolean conOeffnen(String datenbank, String user, String kennwort) {
 
-		try {
-			// 1. JDBC-Treiber laden
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+        try {
+            // 1. JDBC-Treiber laden
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-			// 2. Datenbank-URL spezifizieren
-			// String dbUrl = "jdbc:odbc:EAdressen";
-			// String dbFilename = Optionen.dbName ;
+            // 2. Datenbank-URL spezifizieren
+            // String dbUrl = "jdbc:odbc:EAdressen";
+            // String dbFilename = Optionen.dbName ;
 
-			String dbUrl = "jdbc:mysql://" + datenbank;
+            String dbUrl = "jdbc:mysql://" + datenbank;
 
-			// 3. Connect zur Datenbank ausfuehren (Kennwort muss beim
-			// Programmaufruf uebergeben werden)
-			db = DriverManager.getConnection(dbUrl, user, kennwort);
+            // 3. Connect zur Datenbank ausfuehren (Kennwort muss beim
+            // Programmaufruf uebergeben werden)
+            db = DriverManager.getConnection(dbUrl, user, kennwort);
 
-			// scrollbare Cursor unterstuetzen
-			@SuppressWarnings("unused")
-			Statement stmt = db.createStatement(
-					ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+            // scrollbare Cursor unterstuetzen
+            @SuppressWarnings("unused")
+            Statement stmt = db.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
 
-			// System.out.println("oeffnen mit Erfolg");
-		}
-		// Ggf. aufgetretene Exceptions abfangen
-		catch (SQLException my_sqlex) {
-			System.out.println("ERROR: Datenbankfehler: "
-					+ my_sqlex.getMessage());
-			System.err.println("SQL-State: " + my_sqlex.getSQLState());
-			my_sqlex.printStackTrace();
-			db = null;
-			return false;
-		} catch (Exception my_ex) {
-			System.out
-					.println("ERROR: Sonstiger Fehler: " + my_ex.getMessage());
-			my_ex.printStackTrace();
-			db = null;
-			return false;
-		}
-		return true;
-	}
+            // System.out.println("oeffnen mit Erfolg");
+        }
+        // Ggf. aufgetretene Exceptions abfangen
+        catch (SQLException my_sqlex) {
+            System.out.println("ERROR: Datenbankfehler: "
+                    + my_sqlex.getMessage());
+            System.err.println("SQL-State: " + my_sqlex.getSQLState());
+            my_sqlex.printStackTrace();
+            db = null;
+            return false;
+        } catch (Exception my_ex) {
+            System.out
+                    .println("ERROR: Sonstiger Fehler: " + my_ex.getMessage());
+            my_ex.printStackTrace();
+            db = null;
+            return false;
+        }
+        return true;
+    }
 
-	// ::::::::::::::::::::::::::::: Ab hier fuer alle Datenbanken gleich
-	/**
-	 * Upadate/Create/.. ohne Resultset mit SQL-String
-	 * 
-	 * @param updStr
-	 * @return erfolgreich
-	 */
-	public boolean conExecute(String updStr) {
-		boolean erg = true;
-		try {
-			// 4. Statement erzeugen
-			Statement myStmt = db.createStatement();
-			@SuppressWarnings("unused")
-			int tmp = myStmt.executeUpdate(updStr);
-		}
-		// Ggf. aufgetretene Exceptions abfangen
-		catch (SQLException my_sqlex) {
-			System.out.println("Aktion: Datenbankfehler: "
-					+ my_sqlex.getMessage());
-			System.err.println("SQL-State: " + my_sqlex.getSQLState());
-			System.out.println(updStr);
-			// my_sqlex.printStackTrace();
-			erg = false;
-		} catch (Exception my_ex) {
-			System.out.println("Abfrage: Sonstiger Fehler: "
-					+ my_ex.getMessage());
-			System.out.println(updStr);
-			// my_ex.printStackTrace();
-			erg = false;
-		}
-		return erg;
-	}
-	/**
-	 * Abfrage mit SQL-String
-	 * 
-	 * @param queryStr
-	 *            ResultSet wird in Public-Attribut res gespeichert.
-	 */
-	public void conAbfrage(String queryStr) {
-		ResultSet myResult = null; // Ergebnissatz
-		try {
-			// 4. Statement erzeugen
-			Statement myStmt = db.createStatement();
-			// 5. Abfrageterm als String festlegen
-			// String queryStr =
-			// "SELECT DISTINCT Klasse , Vorname, Name FROM Adressen WHERE Email <> '' ";
-			// 6. Abfrage ausfuehren
-			myResult = myStmt.executeQuery(queryStr);
-		}
-		// Ggf. aufgetretene Exceptions abfangen
-		catch (SQLException my_sqlex) {
-			System.out.println("Abfrage: Datenbankfehler: "
-					+ my_sqlex.getMessage());
-			System.err.println("SQL-State: " + my_sqlex.getSQLState());
-			System.out.println(queryStr);
-			// my_sqlex.printStackTrace();
-		} catch (Exception my_ex) {
-			System.out.println("Abfrage: Sonstiger Fehler: "
-					+ my_ex.getMessage());
-			System.out.println(queryStr);
-			// my_ex.printStackTrace();
-		}
-		res = myResult;
-	}
-
-
-	/**
-	 * Schliessen der Datenbank
-	 */
-	public boolean conClose() {
-		boolean erg = true;
-		try {
-			// 8. Connect zur Datenbank beenden
-			if (db != null)
-				db.close();
-			else
-				erg = false;
-		}
-		// Ggf. aufgetretene Exceptions abfangen
-		catch (SQLException my_sqlex) {
-			System.out.println("Datenbankschliessen: Datenbank: "
-					+ my_sqlex.getMessage());
-			System.err.println("SQL-State: " + my_sqlex.getSQLState());
-			my_sqlex.printStackTrace();
-			erg = false;
-		} catch (Exception my_ex) {
-			System.out.println("Datenbankschliessen: Sonstiger Fehler: "
-					+ my_ex.getMessage());
-			my_ex.printStackTrace();
-			erg = false;
-		}
-		return erg;
-	}
-
-	public void AutoCommit(Boolean ON) {
-		if (db != null) {
-			try {
-				db.setAutoCommit(ON);
-			} catch (SQLException e) {
-				// e.printStackTrace();
-			}
-		}
-	}
-
-	public void Commit() {
-		if (db != null) {
-			try {
-				db.commit();
-			} catch (SQLException e) {
-				// e.printStackTrace();
-			}
-		}
-	}
-
-	public void Rollback() {
-		if (db != null) {
-			try {
-				db.rollback();
-			} catch (SQLException e) {
-				// e.printStackTrace();
-			}
-		}
-	}
+    // ::::::::::::::::::::::::::::: Ab hier fuer alle Datenbanken gleich
+    /**
+     * Upadate/Create/.. ohne Resultset mit SQL-String
+     * 
+     * @param updStr
+     * @return erfolgreich
+     */
+    public boolean conExecute(String updStr) {
+        boolean erg = true;
+        try {
+            // 4. Statement erzeugen
+            Statement myStmt = db.createStatement();
+            @SuppressWarnings("unused")
+            int tmp = myStmt.executeUpdate(updStr);
+        }
+        // Ggf. aufgetretene Exceptions abfangen
+        catch (SQLException my_sqlex) {
+            System.out.println("Aktion: Datenbankfehler: "
+                    + my_sqlex.getMessage());
+            System.err.println("SQL-State: " + my_sqlex.getSQLState());
+            System.out.println(updStr);
+            // my_sqlex.printStackTrace();
+            erg = false;
+        } catch (Exception my_ex) {
+            System.out.println("Abfrage: Sonstiger Fehler: "
+                    + my_ex.getMessage());
+            System.out.println(updStr);
+            // my_ex.printStackTrace();
+            erg = false;
+        }
+        return erg;
+    }
+    /**
+     * Abfrage mit SQL-String
+     * 
+     * @param queryStr
+     *            ResultSet wird in Public-Attribut res gespeichert.
+     */
+    public void conAbfrage(String queryStr) {
+        ResultSet myResult = null; // Ergebnissatz
+        try {
+            // 4. Statement erzeugen
+            Statement myStmt = db.createStatement();
+            // 5. Abfrageterm als String festlegen
+            // String queryStr =
+            // "SELECT DISTINCT Klasse , Vorname, Name FROM Adressen WHERE Email <> '' ";
+            // 6. Abfrage ausfuehren
+            myResult = myStmt.executeQuery(queryStr);
+        }
+        // Ggf. aufgetretene Exceptions abfangen
+        catch (SQLException my_sqlex) {
+            System.out.println("Abfrage: Datenbankfehler: "
+                    + my_sqlex.getMessage());
+            System.err.println("SQL-State: " + my_sqlex.getSQLState());
+            System.out.println(queryStr);
+            // my_sqlex.printStackTrace();
+        } catch (Exception my_ex) {
+            System.out.println("Abfrage: Sonstiger Fehler: "
+                    + my_ex.getMessage());
+            System.out.println(queryStr);
+            // my_ex.printStackTrace();
+        }
+        res = myResult;
+    }
 
 
-	/**
-	 * Anzahl im Resultset
-	 * 
-	 * @return
-	 */
-	public int anzahlDatensaetze() {
-		int rows = 0;
-		try {
-			res.last();
-			rows = res.getRow();
-			res.beforeFirst();
+    /**
+     * Schliessen der Datenbank
+     */
+    public boolean conClose() {
+        boolean erg = true;
+        try {
+            // 8. Connect zur Datenbank beenden
+            if (db != null)
+                db.close();
+            else
+                erg = false;
+        }
+        // Ggf. aufgetretene Exceptions abfangen
+        catch (SQLException my_sqlex) {
+            System.out.println("Datenbankschliessen: Datenbank: "
+                    + my_sqlex.getMessage());
+            System.err.println("SQL-State: " + my_sqlex.getSQLState());
+            my_sqlex.printStackTrace();
+            erg = false;
+        } catch (Exception my_ex) {
+            System.out.println("Datenbankschliessen: Sonstiger Fehler: "
+                    + my_ex.getMessage());
+            my_ex.printStackTrace();
+            erg = false;
+        }
+        return erg;
+    }
 
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-		}
-		return rows;
-	}
+    public void AutoCommit(Boolean ON) {
+        if (db != null) {
+            try {
+                db.setAutoCommit(ON);
+            } catch (SQLException e) {
+                // e.printStackTrace();
+            }
+        }
+    }
 
-	/**
-	 * Schaltet auf einen neuen Datensatz Beachten: nach der Abfrage steht der
-	 * Cursor der Datenbank <u>VOR</u> dem ersten Datensatz
-	 * 
-	 * @return
-	 */
-	public boolean neuerDatensatz() {
-		boolean erg = false;
-		try {
-			erg = res.next();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-		}
-		return erg;
-	}
+    public void Commit() {
+        if (db != null) {
+            try {
+                db.commit();
+            } catch (SQLException e) {
+                // e.printStackTrace();
+            }
+        }
+    }
 
-	/**
-	 * Zeigt, ob bei der letzten Leseaktion ein SQL-Null-Wert gelesen wurde.
-	 * 
-	 * @return
-	 */
-	public boolean warNull() {
-		try {
-			return res.wasNull();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-		}
-		return false;
-	}
+    public void Rollback() {
+        if (db != null) {
+            try {
+                db.rollback();
+            } catch (SQLException e) {
+                // e.printStackTrace();
+            }
+        }
+    }
 
-	/**
-	 * Bewegt den Cursor an eine bestimmte Zeile im Resutset
-	 * 
-	 * @param row
-	 * @return
-	 */
-	public boolean absolute(int row) {
-		try {
-			return res.absolute(row);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-		}
-		return false;
-	}
 
-	/**
-	 * Liefert aktuelle Zeilennummer
-	 * 
-	 * @return Fehler -> -1
-	 */
-	public int getRow() {
-		try {
-			return res.getRow();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return -1;
-		}
-	}
+    /**
+     * Anzahl im Resultset
+     * 
+     * @return
+     */
+    public int anzahlDatensaetze() {
+        int rows = 0;
+        try {
+            res.last();
+            rows = res.getRow();
+            res.beforeFirst();
 
-	/**
-	 * 
-	 */
-	public void beforeFirst() {
-		try {
-			res.beforeFirst();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-		}
-	}
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+        }
+        return rows;
+    }
 
-	public boolean istVorErstemDatensatz() {
-		try {
-			return res.isBeforeFirst();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return false;
-		}
-	}
+    /**
+     * Schaltet auf einen neuen Datensatz Beachten: nach der Abfrage steht der
+     * Cursor der Datenbank <u>VOR</u> dem ersten Datensatz
+     * 
+     * @return
+     */
+    public boolean neuerDatensatz() {
+        boolean erg = false;
+        try {
+            erg = res.next();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+        }
+        return erg;
+    }
 
-	public boolean istNachLetztemDatensatz() {
-		try {
-			return res.isAfterLast();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return false;
-		}
-	}
+    /**
+     * Zeigt, ob bei der letzten Leseaktion ein SQL-Null-Wert gelesen wurde.
+     * 
+     * @return
+     */
+    public boolean warNull() {
+        try {
+            return res.wasNull();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+        }
+        return false;
+    }
 
-	public boolean isClosed() {
-		try {
-			return res.isClosed();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return true;
-		}
-	}
+    /**
+     * Bewegt den Cursor an eine bestimmte Zeile im Resutset
+     * 
+     * @param row
+     * @return
+     */
+    public boolean absolute(int row) {
+        try {
+            return res.absolute(row);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+        }
+        return false;
+    }
 
-	/*
-	 * Ab hier finden sich die get-Methoden fuer verschiedene Datentypen.
-	 * Fehlermeldungen werden ignoriert.
-	 */
+    /**
+     * Liefert aktuelle Zeilennummer
+     * 
+     * @return Fehler -> -1
+     */
+    public int getRow() {
+        try {
+            return res.getRow();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return -1;
+        }
+    }
 
-	public boolean getBoolean(int columnIndex) {
-		try {
-			return res.getBoolean(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return false;
-		}
-	}
+    /**
+     * 
+     */
+    public void beforeFirst() {
+        try {
+            res.beforeFirst();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+        }
+    }
 
-	public boolean getBoolean(String columnLabel) {
-		try {
-			return res.getBoolean(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return false;
-		}
-	}
+    public boolean istVorErstemDatensatz() {
+        try {
+            return res.isBeforeFirst();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return false;
+        }
+    }
 
-	public double getDouble(int columnIndex) {
-		try {
-			return res.getDouble(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Double.MIN_VALUE;
-		}
-	}
+    public boolean istNachLetztemDatensatz() {
+        try {
+            return res.isAfterLast();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return false;
+        }
+    }
 
-	public double getDouble(String columnLabel) {
-		try {
-			return res.getDouble(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Double.MIN_VALUE;
-		}
-	}
+    public boolean isClosed() {
+        try {
+            return res.isClosed();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return true;
+        }
+    }
 
-	public float getFloat(int columnIndex) {
-		try {
-			return res.getFloat(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Float.MIN_VALUE;
-		}
-	}
+    /*
+     * Ab hier finden sich die get-Methoden fuer verschiedene Datentypen.
+     * Fehlermeldungen werden ignoriert.
+     */
 
-	public Float getFloat(String columnLabel) {
-		try {
-			return res.getFloat(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Float.MIN_VALUE;
-		}
-	}
+    public boolean getBoolean(int columnIndex) {
+        try {
+            return res.getBoolean(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return false;
+        }
+    }
 
-	public int getInt(int columnIndex) {
-		try {
-			return res.getInt(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Integer.MIN_VALUE;
-		}
-	}
+    public boolean getBoolean(String columnLabel) {
+        try {
+            return res.getBoolean(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return false;
+        }
+    }
 
-	public int getInt(String columnLabel) {
-		try {
-			return res.getInt(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Integer.MIN_VALUE;
-		}
-	}
+    public double getDouble(int columnIndex) {
+        try {
+            return res.getDouble(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Double.MIN_VALUE;
+        }
+    }
 
-	public long getLong(int columnIndex) {
-		try {
-			return res.getLong(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Long.MIN_VALUE;
-		}
-	}
+    public double getDouble(String columnLabel) {
+        try {
+            return res.getDouble(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Double.MIN_VALUE;
+        }
+    }
 
-	public long getLong(String columnLabel) {
-		try {
-			return res.getLong(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return Long.MIN_VALUE;
-		}
-	}
+    public float getFloat(int columnIndex) {
+        try {
+            return res.getFloat(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Float.MIN_VALUE;
+        }
+    }
 
-	public String getString(int columnIndex) {
-		try {
-			return res.getString(columnIndex);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public Float getFloat(String columnLabel) {
+        try {
+            return res.getFloat(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Float.MIN_VALUE;
+        }
+    }
 
-	public String getString(String columnLabel) {
-		try {
-			return res.getString(columnLabel);
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public int getInt(int columnIndex) {
+        try {
+            return res.getInt(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Integer.MIN_VALUE;
+        }
+    }
 
-	public String getDate(int columnIndex) {
-		try {
-			return (res.getDate(columnIndex)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public int getInt(String columnLabel) {
+        try {
+            return res.getInt(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Integer.MIN_VALUE;
+        }
+    }
 
-	public String getDate(String columnLabel) {
-		try {
-			return (res.getDate(columnLabel)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public long getLong(int columnIndex) {
+        try {
+            return res.getLong(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Long.MIN_VALUE;
+        }
+    }
 
-	public String getTime(int columnIndex) {
-		try {
-			return (res.getTime(columnIndex)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public long getLong(String columnLabel) {
+        try {
+            return res.getLong(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return Long.MIN_VALUE;
+        }
+    }
 
-	public String getTime(String columnLabel) {
-		try {
-			return (res.getTime(columnLabel)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public String getString(int columnIndex) {
+        try {
+            return res.getString(columnIndex);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
 
-	public String getTimestamp(int columnIndex) {
-		try {
-			return (res.getTimestamp(columnIndex)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public String getString(String columnLabel) {
+        try {
+            return res.getString(columnLabel);
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
 
-	public String getTimestamp(String columnLabel) {
-		try {
-			return (res.getTimestamp(columnLabel)).toString();
-		} catch (SQLException e) {
-			// e.PrintStackTrace();
-			return "#####";
-		}
-	}
+    public String getDate(int columnIndex) {
+        try {
+            return (res.getDate(columnIndex)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
 
-	/**
-	 * Fuer Insert, wenn <b>erstes Attribut</b> Autoincrementwert
-	 * 
-	 * @param updStr
-	 * @return Autoincrementwert Fehler -> -1
-	 */
-	public int conInsertAutoIncrement(String updStr) {
-		int erg = -1;
-		try {
-			// 4. Statement erzeugen
-			Statement myStmt = db.createStatement();
-			@SuppressWarnings("unused")
-			int tmp = myStmt.executeUpdate(updStr,
-					Statement.RETURN_GENERATED_KEYS);
-			//
-			// Example of using Statement.getGeneratedKeys()
-			// to retrieve the value of an auto-increment
-			// value
-			//
-			res = myStmt.getGeneratedKeys();
-			if (res.next()) {
-				erg = res.getInt(1);
-			} else {
-				// throw an exception from here
-			}
+    public String getDate(String columnLabel) {
+        try {
+            return (res.getDate(columnLabel)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
 
-		}
-		// Ggf. aufgetretene Exceptions abfangen
-		catch (SQLException my_sqlex) {
-			System.out.println("Aktion: Datenbankfehler: "
-					+ my_sqlex.getMessage());
-			System.err.println("SQL-State: " + my_sqlex.getSQLState());
-			System.out.println(updStr);
-			// my_sqlex.printStackTrace();
-		} catch (Exception my_ex) {
-			System.out.println("Abfrage: Sonstiger Fehler: "
-					+ my_ex.getMessage());
-			System.out.println(updStr);
-			// my_ex.printStackTrace();
-		}
-		return erg;
-	}
+    public String getTime(int columnIndex) {
+        try {
+            return (res.getTime(columnIndex)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
+
+    public String getTime(String columnLabel) {
+        try {
+            return (res.getTime(columnLabel)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
+
+    public String getTimestamp(int columnIndex) {
+        try {
+            return (res.getTimestamp(columnIndex)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
+
+    public String getTimestamp(String columnLabel) {
+        try {
+            return (res.getTimestamp(columnLabel)).toString();
+        } catch (SQLException e) {
+            // e.PrintStackTrace();
+            return "#####";
+        }
+    }
+
+    /**
+     * Fuer Insert, wenn <b>erstes Attribut</b> Autoincrementwert
+     * 
+     * @param updStr
+     * @return Autoincrementwert Fehler -> -1
+     */
+    public int conInsertAutoIncrement(String updStr) {
+        int erg = -1;
+        try {
+            // 4. Statement erzeugen
+            Statement myStmt = db.createStatement();
+            @SuppressWarnings("unused")
+            int tmp = myStmt.executeUpdate(updStr,
+                    Statement.RETURN_GENERATED_KEYS);
+            //
+            // Example of using Statement.getGeneratedKeys()
+            // to retrieve the value of an auto-increment
+            // value
+            //
+            res = myStmt.getGeneratedKeys();
+            if (res.next()) {
+                erg = res.getInt(1);
+            } else {
+                // throw an exception from here
+            }
+
+        }
+        // Ggf. aufgetretene Exceptions abfangen
+        catch (SQLException my_sqlex) {
+            System.out.println("Aktion: Datenbankfehler: "
+                    + my_sqlex.getMessage());
+            System.err.println("SQL-State: " + my_sqlex.getSQLState());
+            System.out.println(updStr);
+            // my_sqlex.printStackTrace();
+        } catch (Exception my_ex) {
+            System.out.println("Abfrage: Sonstiger Fehler: "
+                    + my_ex.getMessage());
+            System.out.println(updStr);
+            // my_ex.printStackTrace();
+        }
+        return erg;
+    }
 }

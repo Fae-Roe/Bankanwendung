@@ -10,13 +10,14 @@ public class ANGESTELLTER extends PERSON
     private KUNDE aktKunde;
     private BANK bank;
     private KONTO aktKonto;
-    public ANGESTELLTER(String name, int pin, BANK bankname)
+    public ANGESTELLTER(String newname, int newpin)
     {
-        bank = bankname;
-        
+        super(newname,newpin);
+        name = newname;
+        pin = newpin;
     }
 
-    public int SparkonotoEinrichten(double betrag)
+    public int SparkontoEinrichten(double betrag)
     {
         
         return 0;
@@ -24,55 +25,62 @@ public class ANGESTELLTER extends PERSON
     
     public int GirokontoEinrichten(double betrag)
     {
-        
         return 0;
     }
     
     public boolean KontoLoeschen()
     {
-        
-        return true;
+        if(aktKonto != null)
+        {
+            aktKonto = null;
+            return true;
+        }
+        else return false;
     }
     
     public String AngestellterLoeschen(String name)
     {
-        
-        return null;
+        name = null;
+        pin = 0;
+        return name;
     }
     
     public boolean KundeWaehlen(String name)
     {
-        
-        return true;
+        if(aktKunde.name == name) return true;
+        else return false;
     }
     
     public String NeuenKundenEinrichten(String name, int pin)
     {
-        
-        return null;
+        aktKunde.name = name;
+        aktKunde.pin = pin;
+        return aktKunde.name;
     }
     
     public KUNDE AktkundeGeben()
     {
-     
-        return null;
+        return aktKunde;
     }
     
     public void KontoSetzen()
     {
-        
+        double kontostand = aktKonto.kontostand;
+        int kontonummer = aktKonto.kontonummer;
+        KUNDE besitzer = aktKonto.besitzer;
     }
     
     public String KundenLoeschen()
     {
-        
-        return null;
+        aktKunde = null;
+        return aktKunde.name;
     }
     
-    public String NeuenAngestelltenEinrichten(String name, int pin)
+    public String NeuenAngestelltenEinrichten(String newname, int newpin)
     {
-        
-        return null;
+        name = newname;
+        pin = newpin;
+        return name;
     }
     
     }
