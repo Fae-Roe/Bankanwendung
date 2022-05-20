@@ -99,9 +99,9 @@ public class DATENBANKVERBINDUNG
         return kont;
     }
      
-    public void kontostandAendern(double kontostand, int sNeu)
+    public void kontostandAendern(double kNr, int sNeu)
     {
-        db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
+        db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }
   
     public int zinssatzGeben(int kNr)
