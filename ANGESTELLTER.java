@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse ANGESTELLTER.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 20.05.2022
  */
 public class ANGESTELLTER extends PERSON
 {
@@ -19,13 +19,14 @@ public class ANGESTELLTER extends PERSON
 
     public int SparkontoEinrichten(double betrag)
     {
-        
-        return 0;
+        SPARKONTO spar = new SPARKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
+        return aktKonto.kontonummer;
     }
     
     public int GirokontoEinrichten(double betrag)
     {
-        return 0;
+        GIROKONTO spar = new GIROKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
+        return aktKonto.kontonummer;
     }
     
     public boolean KontoLoeschen()
@@ -76,11 +77,9 @@ public class ANGESTELLTER extends PERSON
         return aktKunde.name;
     }
     
-    public String NeuenAngestelltenEinrichten(String newname, int newpin)
+    public ANGESTELLTER NeuenAngestelltenEinrichten(String newname, int newpin)
     {
-        name = newname;
-        pin = newpin;
-        return name;
+        return new ANGESTELLTER(newname, newpin);
     }
     
     }

@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse GIROKONTO.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 20.05.2022
  */
 public class GIROKONTO extends KONTO
 {
@@ -13,7 +13,7 @@ public class GIROKONTO extends KONTO
         super(kontonr, bes);
         kontonummer = kontonr;
         ueberziehungsrahmen = uzr;
-        besitzer = besitzer;
+        besitzer = bes;
     }
     
     public GIROKONTO(int kontonr, double kstand, double uzr, KUNDE bes)

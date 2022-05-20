@@ -6,9 +6,12 @@ alles, was er/sie wissen muss. Üblicherweise sollte der Kommentar
 zumindest die folgenden Angaben umfassen:
 ------------------------------------------------------------------------
 
-PROJEKTBEZEICHNUNG:
-PROJEKTZWECK:
-VERSION oder DATUM:
-WIE IST DAS PROJEKT ZU STARTEN:
-AUTOR(EN):
-BENUTZERHINWEISE:
+PROJEKTBEZEICHNUNG: Bankanwendung
+PROJEKTZWECK: Oberfläche einer Bank
+VERSION oder DATUM: 20.05.2022
+WIE IST DAS PROJEKT ZU STARTEN: Aufrufen durch Datenbankverbindung
+AUTOR(EN): Lena Weeß, Angelina Pilkenrodt, Jasmin Geyer, Maja Schlecht
+BENUTZERHINWEISE: Die Oberfläche wird dazu verwendet, Konten zu verwalten. 
+Mit ihrer Hilfe wird zwischen Angestellten und Kunden unterschieden, es
+können Konten erstellt und gelöscht, sowie Beträge abgehoben und eingezahlt 
+werden.

@@ -65,7 +65,7 @@ public class DATENBANKVERBINDUNG
     // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     // }
 
-    // geht 
+    
     public int pinGeben(int kNr)
     {
         int pin = 1;
@@ -78,30 +78,32 @@ public class DATENBANKVERBINDUNG
         }
         return pin;
     }
-    // geht
+   
     public void pinAendern(int pin, int pNeu)
     {
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    // geht 
+     
     public int kontostandGeben(int kNr)
     {
         int kont = -1;
+
         //verwende den Namen test, der ist in der Tabelle hinterlegt
         db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
+
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
         }
         return kont;
     }
-    // geht 
+     
     public void kontostandAendern(double kontostand, int sNeu)
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
-    // geht 
+  
     public int zinssatzGeben(int kNr)
     {
         int zins = -1;
@@ -113,12 +115,12 @@ public class DATENBANKVERBINDUNG
         }
         return zins;
     }
-    // geht 
+     
     public void zinssatzAendern(int kNr, boolean sNeu)
     {
         db.conExecute("UPDATE konto SET `zinssatz` = " + sNeu + "  WHERE kontonummer = " + kNr); 
     }
-    // geht
+    
     public String besitzerGeben(int kNr)
     {
         String bes = "s";
@@ -130,7 +132,7 @@ public class DATENBANKVERBINDUNG
         }
         return bes;
     }
-    // geht 
+    
     public int ueberziehungsrahmenGeben(int kNr)
     {
         int ueb = -1;
@@ -142,12 +144,26 @@ public class DATENBANKVERBINDUNG
         }
         return ueb;
     }
-    // geht 
+    
     public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
     {
         db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
+    
+    
     // nicht fertig
     public boolean kontoartGeben(int Kontonummer)
     {return false;}
+    
+    public boolean LogIn(int BenutzerID,int pin)
+    {
+        
+        return true;
+    }
+    
+    public boolean AngestellterOderKunde(int BenutzerID)
+    {
+        
+        return true;
+    }
 }
