@@ -5,18 +5,15 @@
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class OBERFLAECHE_ANGESTELLTER
+public class OBERFLAECHE_ANGESTELLTER extends OBERFLAECHE_LOGIN
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
 
     /**
      * Konstruktor für Objekte der Klasse OBERFLAECHE_ANGESTELLTER
      */
     public OBERFLAECHE_ANGESTELLTER()
     {
-        // Instanzvariable initialisieren
-        x = 0;
+        super();
     }
 
     /**
@@ -28,6 +25,5 @@ public class OBERFLAECHE_ANGESTELLTER
     public int beispielMethode(int y)
     {
         // tragen Sie hier den Code ein
-        return x + y;
     }
 }
