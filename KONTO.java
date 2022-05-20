@@ -3,6 +3,9 @@
   * 
   * @author Lena Weeß 
   * @version 01.04.2022
+  * 
+  * @author Maja Schlecht
+  * @version irwann
   */
 public abstract class KONTO
    {
