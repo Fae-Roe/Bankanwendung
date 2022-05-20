@@ -19,13 +19,14 @@ public class ANGESTELLTER extends PERSON
 
     public int SparkontoEinrichten(double betrag)
     {
-        
-        return 0;
+        SPARKONTO spar = new SPARKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
+        return aktKonto.kontonummer;
     }
     
     public int GirokontoEinrichten(double betrag)
     {
-        return 0;
+        GIROKONTO spar = new GIROKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
+        return aktKonto.kontonummer;
     }
     
     public boolean KontoLoeschen()
