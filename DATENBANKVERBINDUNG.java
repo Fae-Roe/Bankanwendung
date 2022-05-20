@@ -65,7 +65,6 @@ public class DATENBANKVERBINDUNG
     // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     // }
 
-    
     public int pinGeben(int kNr)
     {
         int pin = 1;
@@ -78,13 +77,12 @@ public class DATENBANKVERBINDUNG
         }
         return pin;
     }
-   
+
     public void pinAendern(int pin, int pNeu)
     {
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-     
     public int kontostandGeben(int kNr)
     {
         int kont = -1;
@@ -98,12 +96,12 @@ public class DATENBANKVERBINDUNG
         }
         return kont;
     }
-     
+
     public void kontostandAendern(double kontostand, int sNeu)
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
-  
+
     public int zinssatzGeben(int kNr)
     {
         int zins = -1;
@@ -115,12 +113,12 @@ public class DATENBANKVERBINDUNG
         }
         return zins;
     }
-     
+
     public void zinssatzAendern(int kNr, boolean sNeu)
     {
         db.conExecute("UPDATE konto SET `zinssatz` = " + sNeu + "  WHERE kontonummer = " + kNr); 
     }
-    
+
     public String besitzerGeben(int kNr)
     {
         String bes = "s";
@@ -132,7 +130,7 @@ public class DATENBANKVERBINDUNG
         }
         return bes;
     }
-    
+
     public int ueberziehungsrahmenGeben(int kNr)
     {
         int ueb = -1;
@@ -144,26 +142,39 @@ public class DATENBANKVERBINDUNG
         }
         return ueb;
     }
-    
+
     public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
     {
         db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
-    
-    
+
     // nicht fertig
-    public boolean kontoartGeben(int Kontonummer)
-    {return false;}
-    
+    public int kontoartGeben(int kNr)
+    {
+        int kontart = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `girokonto` FROM `konto` WHERE kontonummer = " + kNr);
+        if(db.neuerDatensatz())
+        {
+            kontart = db.getInt(1);
+        }
+        return kontart;
+    }
+
+    public void kontoartaendern(int kNr, int kNeu)
+    {
+        db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
+    }
+
     public boolean LogIn(int BenutzerID,int pin)
     {
-        
+
         return true;
     }
-    
+
     public boolean AngestellterOderKunde(int BenutzerID)
     {
-        
+
         return true;
     }
 }
