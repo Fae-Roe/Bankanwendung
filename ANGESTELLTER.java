@@ -77,11 +77,9 @@ public class ANGESTELLTER extends PERSON
         return aktKunde.name;
     }
     
-    public String NeuenAngestelltenEinrichten(String newname, int newpin)
+    public ANGESTELLTER NeuenAngestelltenEinrichten(String newname, int newpin)
     {
-        name = newname;
-        pin = newpin;
-        return name;
+        return new ANGESTELLTER(newname, newpin);
     }
     
     }
