@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse ANGESTELLTER.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 20.05.2022
  */
 public class ANGESTELLTER extends PERSON
 {

@@ -4,10 +4,10 @@
  * 
 
  * @author Lena Weeß 
- * @version 29.04.2022
+ * @version 20.05.2022
 
  * @author Jasmin Geyer 
- * @version 02.05.2022
+ * @version 20.05.2022
 
  */
 public class KUNDE extends PERSON
