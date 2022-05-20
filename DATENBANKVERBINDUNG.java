@@ -50,30 +50,30 @@ public class DATENBANKVERBINDUNG
 
     // public int AlterGeben()
     // {
-        // int alt = -1;
-        // //verwende den Namen test, der ist in der Tabelle hinterlegt
-        // db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
-        // if(db.neuerDatensatz())
-        // {
-            // alt = db.getInt(1);
-        // }
-        // return alt;
+    // int alt = -1;
+    // //verwende den Namen test, der ist in der Tabelle hinterlegt
+    // db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
+    // if(db.neuerDatensatz())
+    // {
+    // alt = db.getInt(1);
+    // }
+    // return alt;
     // }
 
     // public void AlterAendern(String benutzername, int aNeu)
     // {
-        // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
+    // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     // }
-    
-    
+
     // geht 
-    public int pinGeben(int pin)
+    public int pinGeben(int kNr)
     {
-    
+        int pin = 1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `pin` FROM `konto` WHERE pin = 'pin'");
+        db.conAbfrage("SELECT `pin` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
+
             pin = db.getInt(1);
         }
         return pin;
@@ -84,12 +84,12 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    // geht nicht
-    public int kontostandGeben(int kontostand)
+    // geht 
+    public int kontostandGeben(int kNr)
     {
         int kont = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = 'kontonummer'");
+        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
@@ -101,41 +101,41 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontostand = '" + kontostand + "'"); 
     }
-    // geht nicht
-    public int zinssatzGeben(int kontonummer)
+    // geht 
+    public int zinssatzGeben(int kNr)
     {
         int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `zinssatz` FROM `konto` WHERE zinssatz = 'zinssatz'");
+        db.conAbfrage("SELECT `zinssatz` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
             zins = db.getInt(1);
         }
         return zins;
     }
-    // geht nicht
-    public void zinsenAendern(int kontonummer, int sNeu)
+    // geht 
+    public void zinssatzAendern(int kNr, boolean sNeu)
     {
-        db.conExecute("UPDATE konto SET `zinsen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `zinssatz` = " + sNeu + "  WHERE kontonummer = " + kNr); 
     }
-    // geht nicht
-    public int besitzerGeben(int kontonummer)
+    // geht
+    public String besitzerGeben(int kNr)
     {
-        int bes = -1;
+        String bes = "s";
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `besitzer` FROM `konto` WHERE kontonummer = 'kontonummer'");
+        db.conAbfrage("SELECT `besitzer` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
-            bes = db.getInt(1);
+            bes = db.getString(1);
         }
         return bes;
     }
-    // geht nicht
-     public int ueberziehungsrahmenGeben(int kontonummer)
+    // geht 
+    public int ueberziehungsrahmenGeben(int kNr)
     {
         int ueb = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = 'kontonummer'");
+        db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
             ueb = db.getInt(1);
