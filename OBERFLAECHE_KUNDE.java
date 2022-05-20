@@ -9,7 +9,7 @@
 public class OBERFLAECHE_KUNDE
 {
     
-    public OBERFLAECHE_KUNDE(int s, DATENBANKVERBINDUNG e)
+    public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
         
     }

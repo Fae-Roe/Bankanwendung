@@ -9,7 +9,7 @@
 public class OBERFLAECHE_ANGESTELLTER
 {
     
-    public OBERFLAECHE_ANGESTELLTER(int f, DATENBANKVERBINDUNG h)
+    public OBERFLAECHE_ANGESTELLTER(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
         
     }
