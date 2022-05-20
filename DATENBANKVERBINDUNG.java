@@ -88,7 +88,7 @@ public class DATENBANKVERBINDUNG
     public int kontostandGeben(int kontostand)
     {
         int kont = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        
         db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = 'kontonummer'");
         if(db.neuerDatensatz())
         {
@@ -150,4 +150,16 @@ public class DATENBANKVERBINDUNG
     // nicht fertig
     public boolean kontoartGeben(int Kontonummer)
     {return false;}
+    
+    public boolean LogIn(int BenutzerID,int pin)
+    {
+        
+        return true;
+    }
+    
+    public boolean AngestellterOderKunde(int BenutzerID)
+    {
+        
+        return true;
+    }
 }
