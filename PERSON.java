@@ -9,7 +9,7 @@ public abstract class PERSON
     public String name;
     public int pin;
     DATENBANKVERBINDUNG db;
-    
+    int Kundennummer;
     public PERSON(String newname, int newpin)
     {
         name = newname;
