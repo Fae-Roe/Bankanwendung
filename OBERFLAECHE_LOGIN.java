@@ -77,15 +77,15 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginButton.setIcon(new ImageIcon("Bilder\\einloggen0.JPG"));
         LoginButton.setRolloverIcon(new ImageIcon("Bilder\\einloggen1.JPG"));
         LoginPanel.add(LoginButton);
-        SchliessenButton = new JButton();
+        SchliessenButton = new JButton("Schließen");
         SchliessenButton.addActionListener(this);
         SchliessenButton.setBorder(null);
         SchliessenButton.setBounds(60,320,200,50);
         SchliessenButton.setIcon(new ImageIcon("Bilder\\schließen0.JPG"));
         SchliessenButton.setRolloverIcon(new ImageIcon("Bilder\\schließen1.JPG"));
         LoginPanel.add(SchliessenButton);
-        Bild = new JLabel();
-        Bild.setBounds(0,0,560,415);
+        Bild = new JLabel("OK");
+        Bild.setBounds(60,320,100,20);
         Bild.setIcon(new ImageIcon("Bilder\\login.JPG"));
         LoginPanel.add(Bild);
         LoginFrame.add(LoginPanel);
