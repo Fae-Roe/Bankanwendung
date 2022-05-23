@@ -23,7 +23,7 @@ public class DATENBANKVERBINDUNG
     private void Verbinden()
     {
         boolean i;
-        i=db.conOeffnen("db4free.net:3306/klasse9ab", "adklass", "42test.kl");
+        i=db.conOeffnen("challenger218.mydhp.de:3306/bank", "root", "kamisama123");
         if(i)
         {
             System.out.println("Verbindung erfolgreich");
@@ -48,63 +48,48 @@ public class DATENBANKVERBINDUNG
         }
     }
 
-    public int AlterGeben()
+    // public int AlterGeben()
+    // {
+    // int alt = -1;
+    // //verwende den Namen test, der ist in der Tabelle hinterlegt
+    // db.conAbfrage("SELECT `Alter` FROM `konto` WHERE Name = 'test'");
+    // if(db.neuerDatensatz())
+    // {
+    // alt = db.getInt(1);
+    // }
+    // return alt;
+    // }
+
+    // public void AlterAendern(String benutzername, int aNeu)
+    // {
+    // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
+    // }
+
+    public int pinGeben(int kNr)
     {
-        int alt = -1;
+        int pin = 1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Alter` FROM `MUSIK` WHERE Name = 'test'");
+        db.conAbfrage("SELECT `pin` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
-            alt = db.getInt(1);
-        }
-        return alt;
-    }
 
-    public void AlterAendern(String benutzername, int aNeu)
-    {
-        db.conExecute("UPDATE MUSIK SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
-    }
-
-    public int PINGeben(String Name)
-    {
-        int pin = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `PIN` FROM `MUSIK` WHERE Name = 'Name'");
-        if(db.neuerDatensatz())
-        {
             pin = db.getInt(1);
         }
         return pin;
     }
 
-    public void PINaendern(String Name, int pNeu)
+    public void pinAendern(int pin, int pNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `PIN` = '" + pNeu + "' WHERE Name = '" + Name + "'"); 
+        db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-
-    public int KontonummerGeben(String Name)
-    {
-        int konn = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Kontonummer` FROM `MUSIK` WHERE Name = 'Name'");
-        if(db.neuerDatensatz())
-        {
-            konn = db.getInt(1);
-        }
-        return konn;
-    }
-
-    public void KontonummerAendern(String Name, int kNeu)
-    {
-        db.conExecute("UPDATE MUSIK SET `Kontonummer` = '" + kNeu + "' WHERE Name = '" + Name + "'"); 
-    }
-    
-    public int KontostandGeben(String Name)
+    public int kontostandGeben(int kNr)
     {
         int kont = -1;
+
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Kontonummer` FROM `MUSIK` WHERE Name = 'Name'");
+        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
+
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
@@ -112,42 +97,84 @@ public class DATENBANKVERBINDUNG
         return kont;
     }
 
-    public void KontostandAendern(String Name, int sNeu)
+    public void kontostandAendern(double kNr, int sNeu)
     {
-        db.conExecute("UPDATE MUSIK SET `Kontonummer` = '" + sNeu + "' WHERE Name = '" + Name + "'"); 
-    }
-    
-    public int ZinsenGeben(String Name)
-    {
-        int kont = -1;
-        //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Zinsen` FROM `MUSIK` WHERE Name = 'Name'");
-        if(db.neuerDatensatz())
-        {
-            kont = db.getInt(1);
-        }
-        return kont;
+        db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }
 
-    public void ZinsenAendern(String Name, int sNeu)
+    public int zinssatzGeben(int kNr)
     {
-        db.conExecute("UPDATE MUSIK SET `Zinsen` = '" + sNeu + "' WHERE Name = '" + Name + "'"); 
-    }
-    
-    public int BesitzerGeben(String Name)
-    {
-        int bes = -1;
+        int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `Besitzer` FROM `MUSIK` WHERE Name = 'Name'");
+        db.conAbfrage("SELECT `zinssatz` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
-            bes = db.getInt(1);
+            zins = db.getInt(1);
+        }
+        return zins;
+    }
+
+    public void zinssatzAendern(int kNr, boolean sNeu)
+    {
+        db.conExecute("UPDATE konto SET `zinssatz` = " + sNeu + "  WHERE kontonummer = " + kNr); 
+    }
+
+    public String besitzerGeben(int kNr)
+    {
+        String bes = "s";
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `besitzer` FROM `konto` WHERE kontonummer = " + kNr);
+        if(db.neuerDatensatz())
+        {
+            bes = db.getString(1);
         }
         return bes;
     }
 
-    public void BesitzerAendern(String Name, int bNeu)
+    public int ueberziehungsrahmenGeben(int kNr)
     {
-        db.conExecute("UPDATE MUSIK SET `Besitzer` = '" + bNeu + "' WHERE Name = '" + Name + "'"); 
+        int ueb = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = " + kNr);
+        if(db.neuerDatensatz())
+        {
+            ueb = db.getInt(1);
+        }
+        return ueb;
+    }
+
+    public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
+    {
+        db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+    }
+
+    // nicht fertig
+    public int kontoartGeben(int kNr)
+    {
+        int kontart = -1;
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `girokonto` FROM `konto` WHERE kontonummer = " + kNr);
+        if(db.neuerDatensatz())
+        {
+            kontart = db.getInt(1);
+        }
+        return kontart;
+    }
+
+    public void kontoartaendern(int kNr, int kNeu)
+    {
+        db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
+    }
+
+    public boolean LogIn(int BenutzerID,int pin)
+    {
+
+        return true;
+    }
+
+    public boolean AngestellterOderKunde(int BenutzerID)
+    {
+
+        return true;
     }
 }

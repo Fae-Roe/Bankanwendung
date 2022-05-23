@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse SPARKONTO.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 20.05.2022
  */
 public class SPARKONTO extends KONTO
 {
@@ -11,32 +11,28 @@ public class SPARKONTO extends KONTO
     public SPARKONTO(int kontonummer, double kontostand, KUNDE besitzer)
     {
         super(kontonummer, kontostand, besitzer);
-        
-        
     }
     
     public SPARKONTO(int kontonummer, double zinssatz, double kontostand, KUNDE besitzer)
     {
        super(kontonummer, kontostand, besitzer);
        this.zinssatz =  zinssatz;
-
     }
 
     public void Verzinsen()
     {
-        
+        kontostand = kontostand + kontostand * zinssatz;
     }
     
     public double ZinssatzGeben()
     {
-        return 0.0;
-    
+        return zinssatz;
     }
     
-    public boolean Abhebeben(double newkontostand)
+    public boolean Abheben(double newkontostand)
     {
-        return true;
-    
+        if(newkontostand < kontostand) return true;
+        else return false;
     }
 
 }

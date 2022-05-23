@@ -1,0 +1,15 @@
+Ihre Idee einer Bankanwendung hat unser Interesse sehr geweckt. Deshalb möchten wir durch Java-programmierungen ihre geforderten Leistungen versuchen zu erfüllen.
+Hierzu verwenden wir das Programm BlueJ. Dort erstellen wir die verschiedenen Klassen Konto, Kunde, Angestellter, Girokonto, Sparkonto, Ergebnistabelle, 
+Datenbankverbindung und Person. Mithilfe von Programmierungen in Java werden alle Klassen dies machen, was in ihrem Lastenheft angefordert wurde. Zum einen werden wir 
+die Klasse Bank anlegen in der wir alle Veränderungen der gespeicherten Daten protokollieren. Durch die Klasse Bank wird es möglich sein, Konten anzulegen und auch 
+wieder zu löschen. Zudem kann man sich die Kontonummer anzeigen lassen. Auch sämtliche daten der Angestellten und Kunden können hiermit verwaltet werden. Darunter fällt
+bei Angestellten, dass Suchen, anzeigen und löschen. Dasselbe gilt für die Kunden. Bei Klasse Kunde wird zunächst Name und der entsprechenden PIN für den Zugang zum 
+Konto gespeichert. Mithilfe dieser Daten werden wir den Kunden die Möglichkeiten geben den Kontostand abzurufen und Geld ein- und auszuzahlen. In der Klasse angestellte, 
+wird zunächst der Name und die PIN des angestellten gespeichert. dem Angestellten wird es möglich sein, sowohl Kunden und deren Konten anzulegen als auch zu löschen. 
+dasselbe gilt auch für andere Angestellte. Zudem wird der Angestellte Einzahlungen und Überweisungen für Kunden tätigen können. Auch das verzinsen von Konten wird ihnen 
+ermöglicht. In klasse Konten werden zunächst Kontostand, Kontonummer, Besitzer und die Verbindung gespeichert. Den Konten wird ermöglicht, den Kontostand und die 
+Kontonummer anzuzeigen. Vom Konto kann Geld abgehoben und eingezahlt werden. Zudem ist es dem Konto möglich Auszugdaten zu erstellen und den Eigentümer anzuzeigen. 
+Auch wird gespeichert, ob es sich bei dem Konto um ein Girokonto oder ein Sparkonto handelt.  Bei einem Girokonto wird zu den Methoden aus Konto noch ein 
+Überziehungsrahmen gespeichert und dieser kann angezeigt werden. Beim Sparkonto dagegen kommt ein Zinssatz hinzu, welcher angezeigt und verrechnet wird.
+Dann wird eine Verbindung von den verschiedenen Klassen zur Datenbank hergestellt, damit in dieser Datenbank sämtliche Daten gespeichert werden und abrufbar sind. 
+Zum Schluss wird ein Fenster erstellt, mit welchem sich der Kunde oder der Angestellte einloggen kann, um seine Daten abzurufen und seine Methoden ausführen zu können.

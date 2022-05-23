@@ -3,7 +3,7 @@
  * Beschreiben Sie hier die Klasse GIROKONTO.
  * 
  * @author Lena Weeß 
- * @version 01.04.2022
+ * @version 20.05.2022
  */
 public class GIROKONTO extends KONTO
 {
@@ -25,9 +25,9 @@ public class GIROKONTO extends KONTO
         besitzer = bes;
     }
     
-    public boolean Abheben(double kstand)
+    public boolean Abheben(double newkontostand)
     {
-        if(kstand < kontostand) return true;
+        if(newkontostand < kontostand) return true;
         else return false;
     }
     

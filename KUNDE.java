@@ -4,10 +4,10 @@
  * 
 
  * @author Lena Weeß 
- * @version 29.04.2022
+ * @version 20.05.2022
 
  * @author Jasmin Geyer 
- * @version 02.05.2022
+ * @version 20.05.2022
 
  */
 public class KUNDE extends PERSON
@@ -15,7 +15,7 @@ public class KUNDE extends PERSON
     KUNDE aktKonto;
     public KUNDE(String name, int pin)
     {
-        
+        super(name,pin);
     }
     
     public double KontostandGeben()
@@ -30,8 +30,7 @@ public class KUNDE extends PERSON
     
     public void Einzahlen(double betrag)
     {
-        
-        
+       
     }
     
     public double KontostandErfragen()
@@ -47,7 +46,8 @@ public class KUNDE extends PERSON
     
     public boolean aktkontoSetzen(int PIN)
     {
-     return true;
+       aktKonto.pin = PIN;
+       return true;
     
     }
     
