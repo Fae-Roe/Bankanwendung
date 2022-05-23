@@ -83,9 +83,9 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    public int kontostandGeben(int kNr)
+    public double kontostandGeben(int kNr)
     {
-        int kont = -1;
+        double kont = -1;
 
         //verwende den Namen test, der ist in der Tabelle hinterlegt
         db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
@@ -97,7 +97,7 @@ public class DATENBANKVERBINDUNG
         return kont;
     }
 
-    public void kontostandAendern(double kNr, int sNeu)
+    public void kontostandAendern(int kNr, double sNeu)
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }
@@ -131,9 +131,9 @@ public class DATENBANKVERBINDUNG
         return bes;
     }
 
-    public int ueberziehungsrahmenGeben(int kNr)
+    public double ueberziehungsrahmenGeben(int kNr)
     {
-        int ueb = -1;
+        double ueb = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
         db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
@@ -143,7 +143,7 @@ public class DATENBANKVERBINDUNG
         return ueb;
     }
 
-    public void ueberziehungsrahmenAendern(int kontonummer, int sNeu)
+    public void ueberziehungsrahmenAendern(int kontonummer, double sNeu)
     {
         db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
