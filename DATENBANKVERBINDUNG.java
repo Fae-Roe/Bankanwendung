@@ -148,7 +148,6 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
     }
 
-    // nicht fertig
     public int kontoartGeben(int kNr)
     {
         int kontart = -1;
@@ -165,7 +164,8 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
     }
-
+    
+    // nicht fertig
     public boolean LogIn(int BenutzerID,int pin)
     {
 
