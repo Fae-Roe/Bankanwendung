@@ -20,32 +20,36 @@ public class KUNDE extends PERSON
     {
         super(name,pin);
     }
-    
+
     public double KontostandGeben()
     {
         return db.kontostandGeben(Kontonummer);
     }
-    
+
     public double Abheben(double betrag )
+    {
+        double b = db.kontostandGeben(Kontonummer) - betrag;
+        db.kontostandAendern(Kontonummer, b);
+        return b;
+    }
+
+    public double Einzahlen(double betrag)
+    {
+        double b = db.kontostandGeben(Kontonummer) - betrag;
+        db.kontostandAendern(Kontonummer, b);
+        return b;
+    }
+
+    public void KontoauszugErstellen()
     {
 
     }
-    
-    public void Einzahlen(double betrag)
-    {
-       
-    }
-    
-    public void KontoauszugErstellen()
-    {
-        
-    }
-    
+
     public boolean aktkontoSetzen(int PIN)
     {
-       aktKonto.pin = PIN;
-       return true;
-    
+        aktKonto.pin = PIN;
+        return true;
+
     }
-    
+
 }
