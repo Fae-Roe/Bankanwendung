@@ -10,6 +10,7 @@ public class ANGESTELLTER extends PERSON
     private KUNDE aktKunde;
     private BANK bank;
     private KONTO aktKonto;
+    int Kundennummer;
     public ANGESTELLTER(String newname, int newpin)
     {
         super(newname,newpin);
