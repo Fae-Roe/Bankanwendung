@@ -14,31 +14,27 @@ public class KUNDE extends PERSON
 {
     KUNDE aktKonto;
     DATENBANKVERBINDUNG db;
-    int Kundennumemr;
+    int Kundennummer;
+    int Kontonummer;
     public KUNDE(String name, int pin)
     {
         super(name,pin);
     }
     
-    public double KontostandGeben(int KNr)
+    public double KontostandGeben()
     {
-        return db.kontostandGeben(KNr);
+        return db.kontostandGeben(Kontonummer);
     }
     
-    public double Abheben(double betrag)
+    public double Abheben(double betrag )
     {
-        return 0;
+       double b = db.kontostandGeben(Kontonummer);
+        return db.kontostandAendern(Kontonummer, b - betrag);
     }
     
     public void Einzahlen(double betrag)
     {
        
-    }
-    
-    public double KontostandErfragen()
-    {
-        
-        return 0;
     }
     
     public void KontoauszugErstellen()
