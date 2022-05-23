@@ -35,7 +35,7 @@ public class KUNDE extends PERSON
 
     public double Einzahlen(double betrag)
     {
-        double b = db.kontostandGeben(Kontonummer) - betrag;
+        double b = db.kontostandGeben(Kontonummer) + betrag;
         db.kontostandAendern(Kontonummer, b);
         return b;
     }
