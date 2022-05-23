@@ -165,6 +165,25 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
     }
     
+    public int kundennummerGeben(int kNr)
+    {
+        int kun = -1;
+
+        //verwende den Namen test, der ist in der Tabelle hinterlegt
+        db.conAbfrage("SELECT `kundennummer` FROM `konto` WHERE kontonummer = " + kNr);
+
+        if(db.neuerDatensatz())
+        {
+            kun = db.getInt(1);
+        }
+        return kun;
+    }
+
+    public void kundennummerAendern(double kNr, int sNeu)
+    {
+        db.conExecute("UPDATE konto SET `kundennummer` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
+    }
+    
     // nicht fertig
     public boolean LogIn(int BenutzerID,int pin)
     {
