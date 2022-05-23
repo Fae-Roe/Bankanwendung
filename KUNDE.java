@@ -28,8 +28,9 @@ public class KUNDE extends PERSON
     
     public double Abheben(double betrag )
     {
-       double b = db.kontostandGeben(Kontonummer);
-        return db.kontostandAendern(Kontonummer, b - betrag);
+        double b = db.kontostandGeben(Kontonummer) - betrag; 
+        db.kontostandAendern(Kontonummer, b);
+        return b;
     }
     
     public void Einzahlen(double betrag)
