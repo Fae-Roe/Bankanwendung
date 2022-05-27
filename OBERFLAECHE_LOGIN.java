@@ -70,7 +70,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         PINPasswortfeld.setFont(PINPasswortfeld.getFont().deriveFont((float) 30));
         PINPasswortfeld.setBounds(325,250,200,50);
         LoginPanel.add(PINPasswortfeld);
-        LoginButton = new JButton();
+        LoginButton = new JButton("OK");
         LoginButton.addActionListener(this);
         LoginButton.setBorder(null);
         LoginButton.setBounds(285,320,200,50);
@@ -84,8 +84,8 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         SchliessenButton.setIcon(new ImageIcon("Bilder\\schließen0.JPG"));
         SchliessenButton.setRolloverIcon(new ImageIcon("Bilder\\schließen1.JPG"));
         LoginPanel.add(SchliessenButton);
-        Bild = new JLabel("OK");
-        Bild.setBounds(60,320,100,20);
+        Bild = new JLabel();
+        Bild.setBounds(60,200,0,0);
         Bild.setIcon(new ImageIcon("Bilder\\login.JPG"));
         LoginPanel.add(Bild);
         LoginFrame.add(LoginPanel);
