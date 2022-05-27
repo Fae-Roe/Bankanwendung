@@ -49,7 +49,6 @@ public class KUNDE extends PERSON
     {
         aktKonto.pin = PIN;
         return true;
-
     }
 
 }
