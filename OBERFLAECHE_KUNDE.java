@@ -34,7 +34,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KontostandB = new JButton("Kontostand");
         KontostandB.addActionListener(this);
         KontostandB.setBorder(null);
-        KontostandB.setBounds(100,180,100,50);
+        KontostandB.setBounds(120,180,100,50);
         KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
         KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
         KundePanel.add(KontostandB);
@@ -50,7 +50,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         AbhebenB = new JButton("Abheben");
         AbhebenB.addActionListener(this);
         AbhebenB.setBorder(null);
-        AbhebenB.setBounds(100,300,100,50);
+        AbhebenB.setBounds(120,260,100,50);
         AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
         AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
         KundePanel.add(AbhebenB);
@@ -58,7 +58,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         EinzahlenB = new JButton("Einzahlen");
         EinzahlenB.addActionListener(this);
         EinzahlenB.setBorder(null);
-        EinzahlenB.setBounds(300,300,100,50);
+        EinzahlenB.setBounds(300,260,100,50);
         EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
         EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
         KundePanel.add(EinzahlenB);

@@ -103,7 +103,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginFehlermeldungText.setFont(LoginFehlermeldungText.getFont().deriveFont((float) 30));
         LoginFehlermeldungText.setBounds(10,10,720,100);
         LoginFehlermeldungPanel.add(LoginFehlermeldungText);
-        LoginFehlermeldungButton = new JButton();
+        LoginFehlermeldungButton = new JButton("OK");
         LoginFehlermeldungButton.setBorder(null);
         LoginFehlermeldungButton.setBounds(310,100,90,50);
         LoginFehlermeldungButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
