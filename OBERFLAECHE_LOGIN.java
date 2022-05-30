@@ -90,6 +90,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginPanel.add(Bild);
         LoginFrame.add(LoginPanel);
         LoginFrame.setVisible(true);
+        
 
         LoginFehlermeldung = new JDialog();
         LoginFehlermeldung.setLocationRelativeTo(null);
