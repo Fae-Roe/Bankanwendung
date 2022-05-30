@@ -4,6 +4,8 @@
  * 
  * @author Lena Weeß 
  * @version 20.05.2022
+ * @author Jasmin Gyer
+ * @version 29.05.2022
  */
 public class Test
 {

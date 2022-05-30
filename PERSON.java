@@ -3,6 +3,8 @@
  * 
  * @author Lena Weeß 
  * @version 20.05.2022
+ * @author Jasmin Gyer
+ * @version 29.05.2022
  */
 public abstract class PERSON
 {
@@ -12,6 +14,7 @@ public abstract class PERSON
     DATENBANKVERBINDUNG db;
     public int Kundennummer;
     public PERSON(String n, int p)
+
     {
         name = n;
         pin = p;
