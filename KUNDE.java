@@ -57,16 +57,13 @@ public class KUNDE extends PERSON
             return true;
         }
 
-<<<<<<< HEAD
         return false;
-=======
     }
 
     public boolean aktkontoSetzen(int PIN)
     {
-        aktKonto.pin = PIN;
+         pin = PIN;
         return true;
->>>>>>> ec1a3d062e2f28af9b449b21e464d98dddb6b0f7
     }
 
 }
