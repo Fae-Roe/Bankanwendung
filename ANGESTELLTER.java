@@ -1,4 +1,5 @@
 
+
 /**
  * Beschreiben Sie hier die Klasse ANGESTELLTER.
  * 
