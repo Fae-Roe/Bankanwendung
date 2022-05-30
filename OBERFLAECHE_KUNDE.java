@@ -18,6 +18,11 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     private JButton EinzahlenB;
     private JButton KontoauszugB;
     
+    private JDialog KundeKontostand;
+    private JPanel KundeKontostandPanel;
+    private JLabel KundeKontostandText;
+    private JButton KundeKontostandButton;
+    
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
         super();
@@ -65,7 +70,36 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         
         KundeFrame.add(KundePanel);
         
+        KundeKontostand = new JDialog();
+        KundeKontostand.setLocationRelativeTo(null);
+        KundeKontostandPanel = new JPanel();
+        KundeKontostandPanel.setLayout(null);
+        KundeKontostand.setTitle("Kontostand");
+        KundeKontostand.setSize(720,200);
+        KundeKontostand.setResizable(false);
+        KundeKontostand.setModal(true);
+        KundeKontostandText = new JLabel("Kontostand: ");
+        KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
+        KundeKontostandText.setBounds(10,10,720,100);
+        KundeKontostandPanel.add(KundeKontostandText);
+        KundeKontostandButton = new JButton("OK");
+        KundeKontostandButton.setBorder(null);
+        KundeKontostandButton.setBounds(310,100,90,50);
+        KundeKontostandButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        KundeKontostandButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        KundeKontostandButton.addActionListener(this);
+        KundeKontostandPanel.add(KundeKontostandButton);
+        KundeKontostand.add(KundeKontostandPanel);
+        
         KundeFrame.setVisible(true);
+    }
+    
+    public void ActionPerformed(ActionEvent ae)
+    {
+        if(ae.getSource() == this.KontostandB)
+        {
+            KundeKontostand.setVisible(true);
+        }
     }
 
 }
