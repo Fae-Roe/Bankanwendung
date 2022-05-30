@@ -7,16 +7,18 @@
  */
 public class SPARKONTO extends KONTO
 {
-    double zinssatz;
-    public SPARKONTO(int kontonummer, double kontostand, KUNDE besitzer)
+    private double zinssatz;
+    
+    public SPARKONTO(int kn, double ks, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-        super(kontonummer, kontostand, besitzer);
+        super(kn, ks, bes, db);
+        zinssatz =  1.0;
     }
     
-    public SPARKONTO(int kontonummer, double zinssatz, double kontostand, KUNDE besitzer)
+    public SPARKONTO(int kn, double ks, double zs, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-       super(kontonummer, kontostand, besitzer);
-       this.zinssatz =  zinssatz;
+       super(kn, ks, bes, db);
+       zinssatz =  zs;
     }
 
     public void Verzinsen()
@@ -29,10 +31,18 @@ public class SPARKONTO extends KONTO
         return zinssatz;
     }
     
-    public boolean Abheben(double newkontostand)
+    public boolean Abheben(double betrag)
     {
-        if(newkontostand < kontostand) return true;
-        else return false;
+        double neuerKontostand = kontostand - betrag;
+        
+        if(neuerKontostand >= 0)
+        {
+            kontostand = neuerKontostand;
+            dbVerbindung.kontostandAendern(kontonummer, kontostand);
+            return true;
+        }
+        
+        return false;
     }
 
 }

@@ -6,13 +6,22 @@
  */
 public abstract class PERSON
 {
-    public String name;
-    public int pin;
-    DATENBANKVERBINDUNG db;
-    int Kundennummer;
-    public PERSON(String newname, int newpin)
+    protected String name;
+    protected int pin;
+
+    public PERSON(String n, int p)
     {
-        name = newname;
-        pin = newpin;
+        name = n;
+        pin = p;
+    }
+    
+    public String NamenGeben()
+    {
+        return name;
+    }
+    
+    public int PinGeben()
+    {
+        return pin;
     }
 }

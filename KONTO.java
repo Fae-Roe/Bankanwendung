@@ -8,29 +8,28 @@
   * @version 20.05.2022
   */
 public abstract class KONTO
-   {
+{
     protected double kontostand;
-    public int kontonummer;
-    public KUNDE besitzer;
-    protected DATENBANKVERBINDUNG verbindung;
+    protected int kontonummer;
+    private KUNDE besitzer;
+    protected DATENBANKVERBINDUNG dbVerbindung;
     
-    public KONTO(int kontonr, double kstand, KUNDE bes)
+    public KONTO(int kn, double ks, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-      kontonummer = kontonr;
-      kontostand = kstand;
+      kontonummer = kn;
+      kontostand = ks;
       besitzer = bes;
+      dbVerbindung = db;
     }
     
-    public KONTO(int kontonr, KUNDE besitzerN)
+    public KONTO(int kn, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-        kontonummer = kontonr;
-        besitzer = besitzerN;
+        kontonummer = kn;
+        besitzer = bes;
+        dbVerbindung = db;
     }
     
-    public boolean Abheben()
-    {
-        return Abheben();
-    }
+    public abstract boolean Abheben(double betrag);
     
     public int KontonummerGeben()
     {
@@ -50,6 +49,7 @@ public abstract class KONTO
     public void Einzahlen(double betrag)
     {
         kontostand = kontostand + betrag;
+        dbVerbindung.kontostandAendern(kontonummer, kontostand);
     }
     
-    }
+}

@@ -12,10 +12,8 @@
  */
 public class KUNDE extends PERSON
 {
-    KUNDE aktKonto;
-    DATENBANKVERBINDUNG db;
-    int Kundennummer;
-    int Kontonummer;
+    private KONTO aktKonto;
+    
     public KUNDE(String name, int pin)
     {
         super(name,pin);
@@ -23,33 +21,43 @@ public class KUNDE extends PERSON
 
     public double KontostandGeben()
     {
-        return db.kontostandGeben(Kontonummer);
+        if(aktKonto != null)
+        {
+            return aktKonto.KontostandGeben();
+        }
+    
+        return -1;
     }
 
-    public double Abheben(double betrag )
+    public boolean Abheben(double betrag)
     {
-        double b = db.kontostandGeben(Kontonummer) - betrag;
-        db.kontostandAendern(Kontonummer, b);
-        return b;
+        if(aktKonto != null)
+        {
+            return aktKonto.Abheben(betrag);
+        }
+    
+        return false;
     }
 
-    public double Einzahlen(double betrag)
+    public boolean Einzahlen(double betrag)
     {
-        double b = db.kontostandGeben(Kontonummer) + betrag;
-        db.kontostandAendern(Kontonummer, b);
-        return b;
+        if(aktKonto != null)
+        {
+            aktKonto.Einzahlen(betrag);
+        }
+    
+        return false;
     }
 
-    public void KontoauszugErstellen()
+    public boolean AktKontoSetzen(KONTO konto)
     {
+        if(konto.EigentuemerGeben().NamenGeben() == name)
+        {
+            aktKonto = konto;
+            return true;
+        }
 
-    }
-
-    public boolean aktkontoSetzen(int PIN)
-    {
-        aktKonto.pin = PIN;
-        return true;
-
+        return false;
     }
 
 }

@@ -10,77 +10,86 @@ public class ANGESTELLTER extends PERSON
     private KUNDE aktKunde;
     private BANK bank;
     private KONTO aktKonto;
-    int Kundennummer;
-    public ANGESTELLTER(String newname, int newpin)
+
+    public ANGESTELLTER(String name, int pin, BANK ban)
     {
-        super(newname,newpin);
-        name = newname;
-        pin = newpin;
+        super(name,pin);
+        bank = ban;
     }
 
-    public int SparkontoEinrichten(double betrag)
+    public int SparkontoEinrichten(double betrag, double zinssatz)
     {
-        SPARKONTO spar = new SPARKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
-        return aktKonto.kontonummer;
+        if(aktKunde != null)
+        {
+            return bank.SparkontoEinrichten(betrag, zinssatz, aktKunde);
+        }
+
+        return -1;
     }
-    
-    public int GirokontoEinrichten(double betrag)
+
+    public int GirokontoEinrichten(double betrag, double ueberziehungsrahmen)
     {
-        GIROKONTO spar = new GIROKONTO(aktKonto.kontonummer, betrag, aktKonto.besitzer);
-        return aktKonto.kontonummer;
+        if(aktKunde != null)
+        {
+            return bank.GirokontoEinrichten(betrag, ueberziehungsrahmen, aktKunde);
+        }
+
+        return -1;
     }
-    
+
     public boolean KontoLoeschen()
     {
-        if(aktKonto != null)
-        {
-            aktKonto = null;
-            return true;
-        }
-        else return false;
+        return bank.KontoLoeschen(aktKonto);
     }
-    
-    public String AngestellterLoeschen(String name)
+
+    public boolean AngestelltenLoeschen(String name)
     {
-        name = null;
-        pin = 0;
-        return name;
+        ANGESTELLTER a = bank.AngestelltenSuchen(name);
+        return bank.AngestelltenLoeschen(a);
     }
-    
+
     public boolean KundeWaehlen(String name)
     {
-        if(aktKunde.name == name) return true;
-        else return false;
+        KUNDE k = bank.KundeSuchen(name);
+        if(k != null)
+        {
+            aktKunde = k;
+            return true;
+        }
+
+        return false;
     }
-    
-    public String NeuenKundenEinrichten(String name, int pin)
+
+    public KUNDE NeuenKundenEinrichten(String name, int pin)
     {
-        aktKunde.name = name;
-        aktKunde.pin = pin;
-        return aktKunde.name;
+        return bank.NeuenKundenEinrichten(name, pin);
     }
-    
+
     public KUNDE AktkundeGeben()
     {
         return aktKunde;
     }
-    
-    public void KontoSetzen()
+
+    public boolean KontoSetzen(int kontonummer)
     {
-        double kontostand = aktKonto.kontostand;
-        int kontonummer = aktKonto.kontonummer;
-        KUNDE besitzer = aktKonto.besitzer;
+        KONTO k = bank.KontoSuchen(kontonummer);
+        if(k != null)
+        {
+            aktKonto = k;
+            return true;
+        }
+
+        return false;
     }
-    
-    public String KundenLoeschen()
+
+    public boolean KundenLoeschen()
     {
-        aktKunde = null;
-        return aktKunde.name;
+        return bank.KundenLoeschen(aktKunde);
     }
-    
-    public ANGESTELLTER NeuenAngestelltenEinrichten(String newname, int newpin)
+
+    public ANGESTELLTER NeuenAngestelltenEinrichten(String name, int pin)
     {
-        return new ANGESTELLTER(newname, newpin);
+        return bank.NeuenAngestelltenEinrichten(name, pin);
     }
-    
-    }
+
+}

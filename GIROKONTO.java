@@ -7,28 +7,32 @@
  */
 public class GIROKONTO extends KONTO
 {
-    double ueberziehungsrahmen;
-    public GIROKONTO(int kontonr, double uzr, KUNDE bes)
+    private double ueberziehungsrahmen;
+    
+    public GIROKONTO(int kn, double uzr, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-        super(kontonr, bes);
-        kontonummer = kontonr;
+        super(kn, bes, db);
         ueberziehungsrahmen = uzr;
-        besitzer = bes;
     }
     
-    public GIROKONTO(int kontonr, double kstand, double uzr, KUNDE bes)
+    public GIROKONTO(int kn, double ks, double uzr, KUNDE bes, DATENBANKVERBINDUNG db)
     {
-        super(kontonr, kstand, bes);
-        kontonummer = kontonr;
+        super(kn, ks, bes, db);
         ueberziehungsrahmen = uzr;
-        kontostand = kstand;
-        besitzer = bes;
     }
     
-    public boolean Abheben(double newkontostand)
+    public boolean Abheben(double betrag)
     {
-        if(newkontostand < kontostand) return true;
-        else return false;
+        double neuerKontostand = kontostand - betrag;
+        
+        if(neuerKontostand >= -ueberziehungsrahmen)
+        {
+            kontostand = neuerKontostand;
+            dbVerbindung.kontostandAendern(kontonummer, kontostand);
+            return true;
+        }
+        
+        return false;
     }
     
     public double UeberziehungsrahmenGeben()
