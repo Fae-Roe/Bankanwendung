@@ -9,8 +9,8 @@ public abstract class PERSON
 
     protected String name;
     protected int pin;
-
-    
+    DATENBANKVERBINDUNG db;
+    public int Kundennummer;
     public PERSON(String n, int p)
 
     {
