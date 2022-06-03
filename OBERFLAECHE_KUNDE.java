@@ -12,7 +12,7 @@ import java.awt.event.*;
  * @version 30.05.2022
  */
 
-public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
+public class OBERFLAECHE_KUNDE implements ActionListener
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
@@ -56,7 +56,6 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
-        super();
         KundeFrame = new JFrame("Kunde");
         KundeFrame.setSize(560,420);
         KundeFrame.setResizable(false);
@@ -156,7 +155,6 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag:");
         KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben(BenutzerID) -  0));
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);

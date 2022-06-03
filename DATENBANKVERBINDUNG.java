@@ -83,12 +83,12 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    public double kontostandGeben(int kNr, int PIN)
+    public double kontostandGeben(int kNr)
     {
         double kont = -1;
 
         //verwende den Namen test, der ist in der Tabelle hinterlegt
-        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr + " AND pin = " + PIN);
+        db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
 
         if(db.neuerDatensatz())
         {
