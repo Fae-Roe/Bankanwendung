@@ -162,7 +162,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontoauszug.setSize(720,200);
         KundeKontoauszug.setResizable(false);
         KundeKontoauszug.setModal(true);
-        KundeKontoauszugText = new JLabel("Kontoauzug: ");
+        KundeKontoauszugText = new JLabel("Kontoauzug: "+ KUNDE.aktKonto);
         KundeKontoauszugText.setFont(KundeKontoauszugText.getFont().deriveFont((float) 30));
         KundeKontoauszugText.setBounds(10,10,720,100);
         KundeKontoauszugPanel.add(KundeKontoauszugText);
