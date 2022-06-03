@@ -4,8 +4,6 @@ import java.awt.event.*;
 /**
  * Beschreiben Sie hier die Klasse OBERFLAECHE.
  * 
- * @author Dorian Jaumann 
- * @version 24.06.2020
  */
 public class OBERFLAECHE_LOGIN implements ActionListener
 {
