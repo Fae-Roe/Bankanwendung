@@ -12,14 +12,14 @@
  */
 public class KUNDE extends PERSON
 {
-    private KONTO aktKonto;
+    private static KONTO aktKonto;
     
     public KUNDE(String name, int pin)
     {
         super(name,pin);
     }
 
-    public double KontostandGeben()
+    public static double KontostandGeben()
     {
         if(aktKonto != null)
         {
