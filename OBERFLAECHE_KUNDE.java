@@ -121,7 +121,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag: ");
+        KundeAbhebenText = new JLabel("abgehobener Betrag:");
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);
         KundeAbhebenPanel.add(KundeAbhebenText);

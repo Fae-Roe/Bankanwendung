@@ -193,7 +193,13 @@ public class DATENBANKVERBINDUNG
 
     public boolean AngestellterOderKunde(int BenutzerID)
     {
-        if(BenutzerID == 0) return false;
-        else return true;
+        if(BenutzerID == 0) 
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
     }
 }
