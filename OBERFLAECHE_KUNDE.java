@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 /**
  * Beschreiben Sie hier die Klasse OBERFLAECHE_KUNDE.
  * 
