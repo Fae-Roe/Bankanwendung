@@ -137,7 +137,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenPanel.add(AbhebenT);
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
-        AbhebenButton.setBounds(310,100,90,50);
+        AbhebenButton.setBounds(285,320,200,50);
         AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         AbhebenButton.addActionListener(this);
