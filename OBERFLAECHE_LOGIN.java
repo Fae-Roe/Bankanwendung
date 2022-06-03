@@ -166,6 +166,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     else
                     {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                        LoginFrame.setVisible(false);
                     }
                 }
                 else
@@ -183,12 +184,16 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             if(Auswahl1.isSelected())
             {
                 ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                LoginFrame.setVisible(false);
             }
             else
             {
                 ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                LoginFrame.setVisible(false);
             }
             Auswahlfenster.setVisible(false);
+            LoginFrame.setVisible(false);
+            LoginPanel.setVisible(false);
         }
         else if(ae.getSource() == this.SchliessenButton)
         {
