@@ -47,8 +47,8 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginFrame.setSize(560,420);
         LoginFrame.setResizable(false);
         LoginFrame.setLocationRelativeTo(null);
-        var BankIcon = new ImageIcon("Bilder\\bank.PNG");
-        LoginFrame.setIconImage(BankIcon.getImage());
+        //var BankIcon = new ImageIcon("Bilder\\bank.PNG");
+        //LoginFrame.setIconImage(BankIcon.getImage());
         LoginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         LoginPanel = new JPanel();
         LoginPanel.setLayout(null);
@@ -72,19 +72,19 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginButton.addActionListener(this);
         LoginButton.setBorder(null);
         LoginButton.setBounds(285,320,200,50);
-        LoginButton.setIcon(new ImageIcon("Bilder\\einloggen0.JPG"));
-        LoginButton.setRolloverIcon(new ImageIcon("Bilder\\einloggen1.JPG"));
+        //LoginButton.setIcon(new ImageIcon("Bilder\\einloggen0.JPG"));
+        //LoginButton.setRolloverIcon(new ImageIcon("Bilder\\einloggen1.JPG"));
         LoginPanel.add(LoginButton);
         SchliessenButton = new JButton("Schließen");
         SchliessenButton.addActionListener(this);
         SchliessenButton.setBorder(null);
         SchliessenButton.setBounds(60,320,200,50);
-        SchliessenButton.setIcon(new ImageIcon("Bilder\\schließen0.JPG"));
-        SchliessenButton.setRolloverIcon(new ImageIcon("Bilder\\schließen1.JPG"));
+        //SchliessenButton.setIcon(new ImageIcon("Bilder\\schließen0.JPG"));
+        //SchliessenButton.setRolloverIcon(new ImageIcon("Bilder\\schließen1.JPG"));
         LoginPanel.add(SchliessenButton);
         Bild = new JLabel();
         Bild.setBounds(60,200,0,0);
-        Bild.setIcon(new ImageIcon("Bilder\\login.JPG"));
+        //Bild.setIcon(new ImageIcon("Bilder\\login.JPG"));
         LoginPanel.add(Bild);
         LoginFrame.add(LoginPanel);
         LoginFrame.setVisible(true);
@@ -105,8 +105,8 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginFehlermeldungButton = new JButton("OK");
         LoginFehlermeldungButton.setBorder(null);
         LoginFehlermeldungButton.setBounds(310,100,90,50);
-        LoginFehlermeldungButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        LoginFehlermeldungButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        //LoginFehlermeldungButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //LoginFehlermeldungButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         LoginFehlermeldungButton.addActionListener(this);
         LoginFehlermeldungPanel.add(LoginFehlermeldungButton);
         LoginFehlermeldung.add(LoginFehlermeldungPanel);
@@ -159,10 +159,12 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     if(!db.AngestellterOderKunde(BenutzerIDText))
                     {
                         Auswahlfenster.setVisible(true);
+                        LoginFrame.setVisible(false);
                     }
                     else
                     {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                        LoginFrame.setVisible(false);
                     }
                 }
                 else
@@ -174,18 +176,23 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             {
                 LoginFehlermeldung.setVisible(true);
             }
+            LoginFrame.setVisible(false);
         }
         else if(ae.getSource() == this.AuswahlButton)
         {
             if(Auswahl1.isSelected())
             {
                 ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                LoginFrame.setVisible(false);
             }
             else
             {
                 ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                LoginFrame.setVisible(false);
             }
             Auswahlfenster.setVisible(false);
+            LoginFrame.setVisible(false);
+            LoginPanel.setVisible(false);
         }
         else if(ae.getSource() == this.SchliessenButton)
         {

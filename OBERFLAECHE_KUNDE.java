@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @version 30.05.2022
  */
 
-public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListener
+public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
@@ -99,7 +99,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListen
         KundeKontostand.setSize(720,200);
         KundeKontostand.setResizable(false);
         KundeKontostand.setModal(true);
-        KundeKontostandText = new JLabel("Kontostand: ");
+        KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben(BenutzerID));
         KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
         KundeKontostandText.setBounds(10,10,720,100);
         KundeKontostandPanel.add(KundeKontostandText);
@@ -120,7 +120,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListen
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag: ");
+        KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben(BenutzerID) -  0));
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);
         KundeAbhebenPanel.add(KundeAbhebenText);
@@ -162,7 +162,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListen
         KundeKontoauszug.setSize(720,200);
         KundeKontoauszug.setResizable(false);
         KundeKontoauszug.setModal(true);
-        KundeKontoauszugText = new JLabel("Kontoauzug: ");
+        KundeKontoauszugText = new JLabel("Kontoauzug: "+ KUNDE.aktKonto);
         KundeKontoauszugText.setFont(KundeKontoauszugText.getFont().deriveFont((float) 30));
         KundeKontoauszugText.setBounds(10,10,720,100);
         KundeKontoauszugPanel.add(KundeKontoauszugText);

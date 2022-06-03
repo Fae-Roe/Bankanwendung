@@ -12,14 +12,14 @@
  */
 public class KUNDE extends PERSON
 {
-    private KONTO aktKonto;
+    public static KONTO aktKonto;
     
     public KUNDE(String name, int pin)
     {
         super(name,pin);
     }
 
-    public double KontostandGeben()
+    public static double KontostandGeben()
     {
         if(aktKonto != null)
         {
@@ -29,7 +29,7 @@ public class KUNDE extends PERSON
         return -1;
     }
 
-    public boolean Abheben(double betrag)
+    public static boolean Abheben(double betrag)
     {
         if(aktKonto != null)
         {
@@ -39,7 +39,7 @@ public class KUNDE extends PERSON
         return false;
     }
 
-    public boolean Einzahlen(double betrag)
+    public static boolean Einzahlen(double betrag)
     {
         if(aktKonto != null)
         {
