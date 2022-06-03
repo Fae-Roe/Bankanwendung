@@ -99,7 +99,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontostand.setSize(720,200);
         KundeKontostand.setResizable(false);
         KundeKontostand.setModal(true);
-        KundeKontostandText = new JLabel("Kontostand: "+ KUNDE.KontostandGeben());
+        KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben(BenutzerID));
         KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
         KundeKontostandText.setBounds(10,10,720,100);
         KundeKontostandPanel.add(KundeKontostandText);
@@ -120,7 +120,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag: ");
+        KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben(BenutzerID) -  0));
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);
         KundeAbhebenPanel.add(KundeAbhebenText);
