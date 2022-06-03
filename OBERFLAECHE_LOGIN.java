@@ -113,37 +113,37 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         LoginFehlermeldungPanel.add(LoginFehlermeldungButton);
         LoginFehlermeldung.add(LoginFehlermeldungPanel);
 
-        Auswahlfenster = new JDialog();
-        Auswahlfenster.setLocationRelativeTo(null);
-        AuswahlfensterPanel = new JPanel();
-        AuswahlfensterPanel.setLayout(null);
-        Auswahlfenster.setTitle("Ansicht");
-        Auswahlfenster.setSize(475,320);
-        Auswahlfenster.setResizable(false);
-        Auswahlfenster.setModal(true);
-        AuswahlLabel = new JLabel("Wählen sie bitte ihre Ansicht.");
-        AuswahlLabel.setFont(AuswahlLabel.getFont().deriveFont((float) 30));
-        AuswahlLabel.setBounds(10,10,720,50);
-        AuswahlfensterPanel.add(AuswahlLabel);
-        Auswahl1 = new JRadioButton("Kundenansicht",true);
-        Auswahl1.setFont(Auswahl1.getFont().deriveFont((float) 30));
-        Auswahl1.setBounds(10,80,720,50);
-        AuswahlfensterPanel.add(Auswahl1);
-        Auswahl2 = new JRadioButton("Angestelltenansicht",false);
-        Auswahl2.setFont(Auswahl2.getFont().deriveFont((float) 30));
-        Auswahl2.setBounds(10,150,720,50);
-        AuswahlfensterPanel.add(Auswahl2);
-        AuswahlButtonGroup = new ButtonGroup();
-        AuswahlButtonGroup.add(Auswahl1);
-        AuswahlButtonGroup.add(Auswahl2);
-        AuswahlButton = new JButton();
-        AuswahlButton.setBorder(null);
-        AuswahlButton.setBounds(200,220,90,50);
-        AuswahlButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        AuswahlButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
-        AuswahlButton.addActionListener(this);
-        AuswahlfensterPanel.add(AuswahlButton);
-        Auswahlfenster.add(AuswahlfensterPanel);
+        // Auswahlfenster = new JDialog();
+        // Auswahlfenster.setLocationRelativeTo(null);
+        // AuswahlfensterPanel = new JPanel();
+        // AuswahlfensterPanel.setLayout(null);
+        // Auswahlfenster.setTitle("Ansicht");
+        // Auswahlfenster.setSize(475,320);
+        // Auswahlfenster.setResizable(false);
+        // Auswahlfenster.setModal(true);
+        // AuswahlLabel = new JLabel("Wählen sie bitte ihre Ansicht.");
+        // AuswahlLabel.setFont(AuswahlLabel.getFont().deriveFont((float) 30));
+        // AuswahlLabel.setBounds(10,10,720,50);
+        // AuswahlfensterPanel.add(AuswahlLabel);
+        // Auswahl1 = new JRadioButton("Kundenansicht",true);
+        // Auswahl1.setFont(Auswahl1.getFont().deriveFont((float) 30));
+        // Auswahl1.setBounds(10,80,720,50);
+        // AuswahlfensterPanel.add(Auswahl1);
+        // Auswahl2 = new JRadioButton("Angestelltenansicht",false);
+        // Auswahl2.setFont(Auswahl2.getFont().deriveFont((float) 30));
+        // Auswahl2.setBounds(10,150,720,50);
+        // AuswahlfensterPanel.add(Auswahl2);
+        // AuswahlButtonGroup = new ButtonGroup();
+        // AuswahlButtonGroup.add(Auswahl1);
+        // AuswahlButtonGroup.add(Auswahl2);
+        // AuswahlButton = new JButton();
+        // AuswahlButton.setBorder(null);
+        // AuswahlButton.setBounds(200,220,90,50);
+        // AuswahlButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // AuswahlButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // AuswahlButton.addActionListener(this);
+        // AuswahlfensterPanel.add(AuswahlButton);
+        // Auswahlfenster.add(AuswahlfensterPanel);
 
         db = new DATENBANKVERBINDUNG();
     }
@@ -158,16 +158,9 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 BenutzerIDText = Integer.parseInt(BenutzerIDTextfeld.getText());
                 if(db.LogIn(BenutzerIDText,PINPasswort))
                 {
-                    if(!db.AngestellterOderKunde(BenutzerIDText))
-                    {
-                        Auswahlfenster.setVisible(true);
-                        LoginFrame.setVisible(false);
-                    }
-                    else
-                    {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                        System.out.println("Login Fenster schließen");
                         LoginFrame.setVisible(false);
-                    }
                 }
                 else
                 {
@@ -178,24 +171,24 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             {
                 LoginFehlermeldung.setVisible(true);
             }
-            LoginFrame.setVisible(false);
         }
-        else if(ae.getSource() == this.AuswahlButton)
-        {
-            if(Auswahl1.isSelected())
-            {
-                ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
-                LoginFrame.setVisible(false);
-            }
-            else
-            {
-                ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
-                LoginFrame.setVisible(false);
-            }
-            Auswahlfenster.setVisible(false);
-            LoginFrame.setVisible(false);
-            LoginPanel.setVisible(false);
-        }
+        // else if(ae.getSource() == this.AuswahlButton)
+        // {
+            // if(Auswahl1.isSelected())
+            // {
+                // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                
+                // LoginFrame.setVisible(false);
+            // }
+            // else
+            // {
+                // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                // LoginFrame.setVisible(false);
+            // }
+            // Auswahlfenster.setVisible(false);
+            // LoginFrame.setVisible(false);
+            // LoginPanel.setVisible(false);
+        // }
         else if(ae.getSource() == this.SchliessenButton)
         {
             System.exit(0);

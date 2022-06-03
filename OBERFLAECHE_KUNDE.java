@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @version 30.05.2022
  */
 
-public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
+public class OBERFLAECHE_KUNDE implements ActionListener
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
@@ -43,7 +43,6 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
-        super();
         KundeFrame = new JFrame("Kunde");
         KundeFrame.setSize(560,420);
         KundeFrame.setResizable(false);
