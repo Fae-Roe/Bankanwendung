@@ -27,10 +27,22 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     public JLabel KundeKontostandText;
     public JButton KundeKontostandButton;
     
+    public JFrame AbhebenFrame;
+    public JPanel AbhebenPanel;
+    public JButton AbhebenButton;
+    public JTextField AbhebenT;
+    public double betragAbheben;
+    
     public JDialog KundeAbheben;
     public JPanel KundeAbhebenPanel;
     public JLabel KundeAbhebenText;
     public JButton KundeAbhebenButton;
+    
+    public JDialog EizahlenFrame;
+    public JPanel EinzahlenPanel;
+    public JButton EinzahlenButton;
+    private JTextField EinzahlenT;
+    private double betragEinzahlen;
     
     public JDialog KundeEinzahlen;
     public JPanel KundeEinzahlenPanel;
@@ -113,6 +125,29 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
         
+        AbhebenFrame = new JFrame("Bitte Betrag zum Abheben eingeben");
+        AbhebenFrame.setSize(560,420);
+        AbhebenFrame.setResizable(false);
+        AbhebenFrame.setLocationRelativeTo(null);
+        AbhebenFrame.setIconImage(BankIcon.getImage());
+        AbhebenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AbhebenPanel = new JPanel();
+        AbhebenPanel.setLayout(null);
+        AbhebenT = new JTextField(10);
+        AbhebenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
+        AbhebenT.setBounds(325,180,200,50);
+        AbhebenPanel.add(AbhebenT);
+        AbhebenButton = new JButton("Fertig");
+        AbhebenButton.setBorder(null);
+        AbhebenButton.setBounds(310,100,90,50);
+        AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        AbhebenButton.addActionListener(this);
+        AbhebenPanel.add(AbhebenButton);
+        AbhebenPanel.add(AbhebenPanel);
+        AbhebenFrame.add(AbhebenPanel);
+        AbhebenFrame.setVisible(false);
+        
         KundeAbheben = new JDialog();
         KundeAbheben.setLocationRelativeTo(null);
         KundeAbhebenPanel = new JPanel();
@@ -186,7 +221,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         }
         else if(ae.getSource() == this.AbhebenB)
         {
-            KundeAbheben.setVisible(true);
+            AbhebenFrame.setVisible(true);
         }
         else if(ae.getSource() == this.EinzahlenB)
         {
