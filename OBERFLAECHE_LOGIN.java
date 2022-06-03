@@ -161,6 +161,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     if(!db.AngestellterOderKunde(BenutzerIDText))
                     {
                         Auswahlfenster.setVisible(true);
+                        LoginFrame.setVisible(false);
                     }
                     else
                     {
