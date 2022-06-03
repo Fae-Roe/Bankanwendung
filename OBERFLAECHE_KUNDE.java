@@ -99,7 +99,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontostand.setSize(720,200);
         KundeKontostand.setResizable(false);
         KundeKontostand.setModal(true);
-        KundeKontostandText = new JLabel("Kontostand: ");
+        KundeKontostandText = new JLabel("Kontostand: "+ KUNDE.KontostandGeben());
         KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
         KundeKontostandText.setBounds(10,10,720,100);
         KundeKontostandPanel.add(KundeKontostandText);
