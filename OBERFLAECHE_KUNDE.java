@@ -6,22 +6,40 @@ import java.awt.event.*;
  * 
  * @author Lena Weeß 
  * @version 20.05.2022
+ * 
+ * @author Maja Schlecht
+ * @version 30.05.2022
  */
 
-public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
+public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListener
 {
-    private JFrame KundeFrame;
-    private JPanel KundePanel;
+    public JFrame KundeFrame;
+    public JPanel KundePanel;
     
-    private JButton KontostandB;
-    private JButton AbhebenB;
-    private JButton EinzahlenB;
-    private JButton KontoauszugB;
+    public JButton KontostandB;
+    public JButton AbhebenB;
+    public JButton EinzahlenB;
+    public JButton KontoauszugB;
     
-    private JDialog KundeKontostand;
-    private JPanel KundeKontostandPanel;
-    private JLabel KundeKontostandText;
-    private JButton KundeKontostandButton;
+    public JDialog KundeKontostand;
+    public JPanel KundeKontostandPanel;
+    public JLabel KundeKontostandText;
+    public JButton KundeKontostandButton;
+    
+    public JDialog KundeAbheben;
+    public JPanel KundeAbhebenPanel;
+    public JLabel KundeAbhebenText;
+    public JButton KundeAbhebenButton;
+    
+    public JDialog KundeEinzahlen;
+    public JPanel KundeEinzahlenPanel;
+    public JLabel KundeEinzahlenText;
+    public JButton KundeEinzahlenButton;
+    
+    public JDialog KundeKontoauszug;
+    public JPanel KundeKontoauszugPanel;
+    public JLabel KundeKontoauszugText;
+    public JButton KundeKontoauszugButton;
     
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
@@ -43,6 +61,8 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
         KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
         KundePanel.add(KontostandB);
+        KontostandB.addActionListener(this);
+        KundeFrame.add(KontostandB);
         
         KontoauszugB = new JButton("Kontoauszug");
         KontoauszugB.addActionListener(this);
@@ -69,6 +89,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundePanel.add(EinzahlenB);
         
         KundeFrame.add(KundePanel);
+        KundeFrame.setVisible(true);
         
         KundeKontostand = new JDialog();
         KundeKontostand.setLocationRelativeTo(null);
@@ -91,14 +112,103 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
         
-        KundeFrame.setVisible(true);
+        KundeAbheben = new JDialog();
+        KundeAbheben.setLocationRelativeTo(null);
+        KundeAbhebenPanel = new JPanel();
+        KundeAbhebenPanel.setLayout(null);
+        KundeAbheben.setTitle("Abheben");
+        KundeAbheben.setSize(720,200);
+        KundeAbheben.setResizable(false);
+        KundeAbheben.setModal(true);
+        KundeAbhebenText = new JLabel("abgehobener Betrag: ");
+        KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
+        KundeAbhebenText.setBounds(10,10,720,100);
+        KundeAbhebenPanel.add(KundeAbhebenText);
+        KundeAbhebenButton = new JButton("OK");
+        KundeAbhebenButton.setBorder(null);
+        KundeAbhebenButton.setBounds(310,100,90,50);
+        KundeAbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        KundeAbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        KundeAbhebenButton.addActionListener(this);
+        KundeAbhebenPanel.add(KundeAbhebenButton);
+        KundeAbheben.add(KundeAbhebenPanel);
+        
+        KundeEinzahlen = new JDialog();
+        KundeEinzahlen.setLocationRelativeTo(null);
+        KundeEinzahlenPanel = new JPanel();
+        KundeEinzahlenPanel.setLayout(null);
+        KundeEinzahlen.setTitle("Einzahlen");
+        KundeEinzahlen.setSize(720,200);
+        KundeEinzahlen.setResizable(false);
+        KundeEinzahlen.setModal(true);
+        KundeEinzahlenText = new JLabel("eingezahlter Betrag: ");
+        KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 30));
+        KundeEinzahlenText.setBounds(10,10,720,100);
+        KundeEinzahlenPanel.add(KundeEinzahlenText);
+        KundeEinzahlenButton = new JButton("OK");
+        KundeEinzahlenButton.setBorder(null);
+        KundeEinzahlenButton.setBounds(310,100,90,50);
+        KundeEinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        KundeEinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        KundeEinzahlenButton.addActionListener(this);
+        KundeEinzahlenPanel.add(KundeEinzahlenButton);
+        KundeEinzahlen.add(KundeEinzahlenPanel);
+        
+        KundeKontoauszug = new JDialog();
+        KundeKontoauszug.setLocationRelativeTo(null);
+        KundeKontoauszugPanel = new JPanel();
+        KundeKontoauszugPanel.setLayout(null);
+        KundeKontoauszug.setTitle("Kontoauszug");
+        KundeKontoauszug.setSize(720,200);
+        KundeKontoauszug.setResizable(false);
+        KundeKontoauszug.setModal(true);
+        KundeKontoauszugText = new JLabel("Kontoauzug: ");
+        KundeKontoauszugText.setFont(KundeKontoauszugText.getFont().deriveFont((float) 30));
+        KundeKontoauszugText.setBounds(10,10,720,100);
+        KundeKontoauszugPanel.add(KundeKontoauszugText);
+        KundeKontoauszugButton = new JButton("OK");
+        KundeKontoauszugButton.setBorder(null);
+        KundeKontoauszugButton.setBounds(310,100,90,50);
+        KundeKontoauszugButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        KundeKontoauszugButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        KundeKontoauszugButton.addActionListener(this);
+        KundeKontoauszugPanel.add(KundeKontoauszugButton);
+        KundeKontoauszug.add(KundeKontoauszugPanel);
     }
     
-    public void ActionPerformed(ActionEvent ae)
+    public void actionPerformed(ActionEvent ae)
     {
-        if(ae.getSource() == this.KontostandB)
+         if(ae.getSource() == this.KontostandB)
         {
             KundeKontostand.setVisible(true);
+        }
+        else if(ae.getSource() == this.AbhebenB)
+        {
+            KundeAbheben.setVisible(true);
+        }
+        else if(ae.getSource() == this.EinzahlenB)
+        {
+            KundeEinzahlen.setVisible(true);
+        }
+        else if(ae.getSource() == this.KontoauszugB)
+        {
+            KundeKontoauszug.setVisible(true);
+        }
+        else if(ae.getSource() == this.KundeKontostandButton)
+        {
+            KundeKontostand.setVisible(false);
+        }
+        else if(ae.getSource() == this.KundeAbhebenButton)
+        {
+            KundeAbheben.setVisible(false);
+        }
+        else if(ae.getSource() == this.KundeEinzahlenButton)
+        {
+            KundeEinzahlen.setVisible(false);
+        }
+        else if(ae.getSource() == this.KundeKontoauszugButton)
+        {
+            KundeKontoauszug.setVisible(false);
         }
     }
 
