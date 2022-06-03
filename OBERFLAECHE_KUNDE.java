@@ -11,7 +11,7 @@ import java.awt.event.*;
  * @version 30.05.2022
  */
 
-public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN implements ActionListener
+public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
