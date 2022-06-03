@@ -26,7 +26,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     public JLabel KundeKontostandText;
     public JButton KundeKontostandButton;
     
-    public JFrame Abheben;
+    public JFrame AbhebenFrame;
     public JPanel AbhebenPanel;
     public JButton AbhebenButton;
     public JTextField AbhebenT;
@@ -37,7 +37,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
     public JLabel KundeAbhebenText;
     public JButton KundeAbhebenButton;
     
-    public JDialog Eizahlen;
+    public JDialog EizahlenFrame;
     public JPanel EinzahlenPanel;
     public JButton EinzahlenButton;
     private JTextField EinzahlenT;
@@ -124,12 +124,12 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
         
-        Abheben = new JFrame("Bitte Betrag zum Abheben eingeben");
-        Abheben.setSize(560,420);
-        Abheben.setResizable(false);
-        Abheben.setLocationRelativeTo(null);
-        Abheben.setIconImage(BankIcon.getImage());
-        Abheben.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AbhebenFrame = new JFrame("Bitte Betrag zum Abheben eingeben");
+        AbhebenFrame.setSize(560,420);
+        AbhebenFrame.setResizable(false);
+        AbhebenFrame.setLocationRelativeTo(null);
+        AbhebenFrame.setIconImage(BankIcon.getImage());
+        AbhebenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         AbhebenPanel = new JPanel();
         AbhebenPanel.setLayout(null);
         AbhebenT = new JTextField(10);
@@ -144,8 +144,8 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         AbhebenButton.addActionListener(this);
         AbhebenPanel.add(AbhebenButton);
         AbhebenPanel.add(AbhebenPanel);
-        Abheben.add(AbhebenPanel);
-        Abheben.setVisible(true);
+        AbhebenFrame.add(AbhebenPanel);
+        AbhebenFrame.setVisible(false);
         
         KundeAbheben = new JDialog();
         KundeAbheben.setLocationRelativeTo(null);
@@ -219,7 +219,7 @@ public class OBERFLAECHE_KUNDE extends OBERFLAECHE_LOGIN
         }
         else if(ae.getSource() == this.AbhebenB)
         {
-            Abheben.setVisible(true);
+            AbhebenFrame.setVisible(true);
         }
         else if(ae.getSource() == this.EinzahlenB)
         {
