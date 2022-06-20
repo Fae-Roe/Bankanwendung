@@ -28,7 +28,7 @@ public class GIROKONTO extends KONTO
         if(neuerKontostand >= -ueberziehungsrahmen)
         {
             kontostand = neuerKontostand;
-            dbVerbindung.kontostandAendern(kontonummer, kontostand);
+            dbVerbindung.kontostandAendern(kontostand);
             return true;
         }
         

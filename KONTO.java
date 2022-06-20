@@ -49,7 +49,7 @@ public abstract class KONTO
     public void Einzahlen(double betrag)
     {
         kontostand = kontostand + betrag;
-        dbVerbindung.kontostandAendern(kontonummer, kontostand);
+        dbVerbindung.kontostandAendern(kontostand);
     }
     
 }
