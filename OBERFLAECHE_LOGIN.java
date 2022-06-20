@@ -4,8 +4,6 @@ import java.awt.event.*;
 /**
  * Beschreiben Sie hier die Klasse OBERFLAECHE.
  * 
- * @author Dorian Jaumann 
- * @version 24.06.2020
  */
 public class OBERFLAECHE_LOGIN implements ActionListener
 {
@@ -159,11 +157,16 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 if(db.LogIn(BenutzerIDText,PINPasswort))
                 {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+<<<<<<< HEAD
                         LoginFrame.setVisible(false);
                     }
               System.out.println("Login Fenster schließen");
                         LoginFrame.setVisible(false);
 
+=======
+                        System.out.println("Login Fenster schließen");
+                        LoginFrame.setVisible(false);
+>>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
                 }
                 else
                 {
@@ -174,6 +177,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             {
                 LoginFehlermeldung.setVisible(true);
             }
+<<<<<<< HEAD
             LoginFrame.setVisible(false);
         
         else if(ae.getSource() == this.AuswahlButton)
@@ -191,6 +195,8 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             Auswahlfenster.setVisible(false);
             LoginFrame.setVisible(false);
             LoginPanel.setVisible(false);
+=======
+>>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
         }
         // else if(ae.getSource() == this.AuswahlButton)
         // {
