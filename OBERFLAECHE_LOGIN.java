@@ -158,20 +158,10 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
 
+
                         LoginFrame.setVisible(false);
                     }
               System.out.println("Login Fenster schließen");
-                        LoginFrame.setVisible(false);
-                        System.out.println("Login Fenster schließen");
-                        LoginFrame.setVisible(false);
-
-                        System.out.println("Login Fenster schließen");
-                        LoginFrame.setVisible(false);
-
-                        System.out.println("Login Fenster schließen");
-                        LoginFrame.setVisible(false);
-
-                        System.out.println("Login Fenster schließen");
                         LoginFrame.setVisible(false);
 
                 }
@@ -183,6 +173,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             catch(NumberFormatException e)
             {
                 LoginFehlermeldung.setVisible(true);
+
             
 
             LoginFrame.setVisible(false);
@@ -202,6 +193,9 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             Auswahlfenster.setVisible(false);
             LoginFrame.setVisible(false);
             LoginPanel.setVisible(false);
+
+
+            }
 
         }
         // else if(ae.getSource() == this.AuswahlButton)
