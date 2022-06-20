@@ -146,6 +146,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenButton.setBounds(285,320,200,50);
 
         AbhebenButton.setBounds(285,320,200,50);
+        AbhebenButton.setBounds(285,320,200,50);
 
         AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
