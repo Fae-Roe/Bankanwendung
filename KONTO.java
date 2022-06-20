@@ -1,4 +1,4 @@
-  /**
+ /**
   * Abstrakte Klasse KONTO - beschreiben Sie hier die Klasse
   * 
   * @author Lena Weeß 

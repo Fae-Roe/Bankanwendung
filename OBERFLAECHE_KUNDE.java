@@ -139,7 +139,11 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
 <<<<<<< HEAD
+<<<<<<< HEAD
         AbhebenButton.setBounds(310,100,90,50);
+=======
+        AbhebenButton.setBounds(285,320,200,50);
+>>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
 =======
         AbhebenButton.setBounds(285,320,200,50);
 >>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
