@@ -138,15 +138,15 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenPanel.add(AbhebenT);
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
-<<<<<<< HEAD
-<<<<<<< HEAD
+        
         AbhebenButton.setBounds(310,100,90,50);
-=======
+
         AbhebenButton.setBounds(285,320,200,50);
->>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
-=======
+
         AbhebenButton.setBounds(285,320,200,50);
->>>>>>> ee7ac63f51a5883133609a9dc919a92ceeea28d0
+
+        AbhebenButton.setBounds(285,320,200,50);
+
         AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         AbhebenButton.addActionListener(this);
