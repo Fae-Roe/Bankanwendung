@@ -38,7 +38,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JLabel KundeAbhebenText;
     public JButton KundeAbhebenButton;
     
-    public JDialog EizahlenFrame;
+    public JFrame EinzahlenFrame;
     public JPanel EinzahlenPanel;
     public JButton EinzahlenButton;
     private JTextField EinzahlenT;
@@ -70,8 +70,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KontostandB.addActionListener(this);
         KontostandB.setBorder(null);
         KontostandB.setBounds(120,180,100,50);
-        KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
-        KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
+        //KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
+        //KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
         KundePanel.add(KontostandB);
         KontostandB.addActionListener(this);
         KundeFrame.add(KontostandB);
@@ -80,24 +80,24 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KontoauszugB.addActionListener(this);
         KontoauszugB.setBorder(null);
         KontoauszugB.setBounds(300,180,100,50);
-        KontoauszugB.setIcon(new ImageIcon("Bilder\\kontoauszug0.JPG"));
-        KontoauszugB.setRolloverIcon(new ImageIcon("Bilder\\kontoauszug1.JPG"));
+        //KontoauszugB.setIcon(new ImageIcon("Bilder\\kontoauszug0.JPG"));
+        //KontoauszugB.setRolloverIcon(new ImageIcon("Bilder\\kontoauszug1.JPG"));
         KundePanel.add(KontoauszugB);
         
         AbhebenB = new JButton("Abheben");
         AbhebenB.addActionListener(this);
         AbhebenB.setBorder(null);
         AbhebenB.setBounds(120,260,100,50);
-        AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
-        AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
+        //AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
+        //AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
         KundePanel.add(AbhebenB);
         
         EinzahlenB = new JButton("Einzahlen");
         EinzahlenB.addActionListener(this);
         EinzahlenB.setBorder(null);
         EinzahlenB.setBounds(300,260,100,50);
-        EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
-        EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
+        //EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
+        //EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
         KundePanel.add(EinzahlenB);
         
         KundeFrame.add(KundePanel);
@@ -118,8 +118,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontostandButton = new JButton("OK");
         KundeKontostandButton.setBorder(null);
         KundeKontostandButton.setBounds(310,100,90,50);
-        KundeKontostandButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeKontostandButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        //KundeKontostandButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //KundeKontostandButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeKontostandButton.addActionListener(this);
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
@@ -135,12 +135,12 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenT = new JTextField(10);
         AbhebenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
         AbhebenT.setBounds(325,180,200,50);
-        AbhebenPanel.add(AbhebenT);
+        AbhebenFrame.add(AbhebenT);
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
         AbhebenButton.setBounds(310,100,90,50);
-        AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        //AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         AbhebenButton.addActionListener(this);
         AbhebenPanel.add(AbhebenButton);
         AbhebenPanel.add(AbhebenPanel);
@@ -162,11 +162,34 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbhebenButton = new JButton("OK");
         KundeAbhebenButton.setBorder(null);
         KundeAbhebenButton.setBounds(310,100,90,50);
-        KundeAbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeAbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        //KundeAbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //KundeAbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeAbhebenButton.addActionListener(this);
         KundeAbhebenPanel.add(KundeAbhebenButton);
         KundeAbheben.add(KundeAbhebenPanel);
+        
+        EinzahlenFrame = new JFrame("Bitte Betrag zum Einzahlen eingeben");
+        EinzahlenFrame.setSize(560,420);
+        EinzahlenFrame.setResizable(false);
+        EinzahlenFrame.setLocationRelativeTo(null);
+        EinzahlenFrame.setIconImage(BankIcon.getImage());
+        EinzahlenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        EinzahlenPanel = new JPanel();
+        EinzahlenPanel.setLayout(null);
+        EinzahlenT = new JTextField(10);
+        EinzahlenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
+        EinzahlenT.setBounds(325,180,200,50);
+        EinzahlenFrame.add(AbhebenT);
+        EinzahlenButton = new JButton("Fertig");
+        EinzahlenButton.setBorder(null);
+        EinzahlenButton.setBounds(310,100,90,50);
+        //EinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //EinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        EinzahlenButton.addActionListener(this);
+        EinzahlenPanel.add(EinzahlenButton);
+        EinzahlenPanel.add(EinzahlenPanel);
+        EinzahlenFrame.add(EinzahlenPanel);
+        EinzahlenFrame.setVisible(false);
         
         KundeEinzahlen = new JDialog();
         KundeEinzahlen.setLocationRelativeTo(null);
@@ -180,11 +203,15 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 30));
         KundeEinzahlenText.setBounds(10,10,720,100);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
+        EinzahlenT = new JTextField(10);
+        EinzahlenT.setFont(EinzahlenT.getFont().deriveFont((float) 30));
+        EinzahlenT.setBounds(325,180,200,50);
+        EinzahlenFrame.add(EinzahlenT);
         KundeEinzahlenButton = new JButton("OK");
         KundeEinzahlenButton.setBorder(null);
         KundeEinzahlenButton.setBounds(310,100,90,50);
-        KundeEinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeEinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        //KundeEinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        //KundeEinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeEinzahlenButton.addActionListener(this);
         KundeEinzahlenPanel.add(KundeEinzahlenButton);
         KundeEinzahlen.add(KundeEinzahlenPanel);
