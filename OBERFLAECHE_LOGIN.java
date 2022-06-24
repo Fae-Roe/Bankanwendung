@@ -231,7 +231,8 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             // LoginFrame.setVisible(false);
             // LoginPanel.setVisible(false);
 
-            }
+
+        }
 
             
     
@@ -273,10 +274,38 @@ public class OBERFLAECHE_LOGIN implements ActionListener
     // LoginFrame.setVisible(false);
     // LoginPanel.setVisible(false);
     // }
-    else if(ae.getSource() == this.SchliessenButton)
+    if(ae.getSource() == this.SchliessenButton)
     {
    
+        // else if(ae.getSource() == this.AuswahlButton)
+        // {
+        // if(Auswahl1.isSelected())
+        // {
+        // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+
+        // LoginFrame.setVisible(false);
+        // }
+        // else
+        // {
+        // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+        // LoginFrame.setVisible(false);
+        // }
+        // Auswahlfenster.setVisible(false);
+        // LoginFrame.setVisible(false);
+        // LoginPanel.setVisible(false);
+        // }
     }
+        else if(ae.getSource() == this.SchliessenButton)
+        {
+            System.exit(0);
+        }
+        else if(ae.getSource() == this.LoginFehlermeldungButton)
+        {
+            LoginFehlermeldung.setVisible(false);
+        }
+
+    }
+
     else if(ae.getSource() == this.LoginFehlermeldungButton)
     {
         LoginFehlermeldung.setVisible(false);
@@ -284,4 +313,6 @@ public class OBERFLAECHE_LOGIN implements ActionListener
 }
 }
 }
+}
+
 }

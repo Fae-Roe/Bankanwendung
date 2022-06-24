@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 /**
  * Beschreiben Sie hier die Klasse OBERFLAECHE_ANGESTELLTER.
@@ -6,13 +9,14 @@
  * @version 20.05.2022
  */
 
-public class OBERFLAECHE_ANGESTELLTER extends OBERFLAECHE_LOGIN
+public class OBERFLAECHE_ANGESTELLTER implements ActionListener
 {
-    
+
     public OBERFLAECHE_ANGESTELLTER(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
-        super();
-        
+
     }
 
+    public void actionPerformed(ActionEvent ae)
+    {}
 }

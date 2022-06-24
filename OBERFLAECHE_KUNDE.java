@@ -70,8 +70,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KontostandB.addActionListener(this);
         KontostandB.setBorder(null);
         KontostandB.setBounds(120,180,100,50);
-        KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
-        KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
+        // KontostandB.setIcon(new ImageIcon("Bilder\\kontostand0.JPG"));
+        // KontostandB.setRolloverIcon(new ImageIcon("Bilder\\kontostand1.JPG"));
         KundePanel.add(KontostandB);
         KontostandB.addActionListener(this);
         KundeFrame.add(KontostandB);
@@ -80,24 +80,24 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KontoauszugB.addActionListener(this);
         KontoauszugB.setBorder(null);
         KontoauszugB.setBounds(300,180,100,50);
-        KontoauszugB.setIcon(new ImageIcon("Bilder\\kontoauszug0.JPG"));
-        KontoauszugB.setRolloverIcon(new ImageIcon("Bilder\\kontoauszug1.JPG"));
+        // KontoauszugB.setIcon(new ImageIcon("Bilder\\kontoauszug0.JPG"));
+        // KontoauszugB.setRolloverIcon(new ImageIcon("Bilder\\kontoauszug1.JPG"));
         KundePanel.add(KontoauszugB);
         
         AbhebenB = new JButton("Abheben");
         AbhebenB.addActionListener(this);
         AbhebenB.setBorder(null);
         AbhebenB.setBounds(120,260,100,50);
-        AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
-        AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
+        // AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
+        // AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
         KundePanel.add(AbhebenB);
         
         EinzahlenB = new JButton("Einzahlen");
         EinzahlenB.addActionListener(this);
         EinzahlenB.setBorder(null);
         EinzahlenB.setBounds(300,260,100,50);
-        EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
-        EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
+        // EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
+        // EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
         KundePanel.add(EinzahlenB);
         
         KundeFrame.add(KundePanel);
@@ -120,8 +120,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontostandButton = new JButton("OK");
         KundeKontostandButton.setBorder(null);
         KundeKontostandButton.setBounds(310,100,90,50);
-        KundeKontostandButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeKontostandButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // KundeKontostandButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // KundeKontostandButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeKontostandButton.addActionListener(this);
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
@@ -141,9 +141,12 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
         AbhebenButton.setBounds(310,100,90,50);
+
         AbhebenButton.setBounds(285,320,200,50);
         AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         AbhebenButton.addActionListener(this);
         AbhebenPanel.add(AbhebenButton);
         AbhebenPanel.add(AbhebenPanel);
@@ -158,15 +161,15 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben() -  0));
+        KundeAbhebenText = new JLabel("abgehobener Betrag: " + (datenbank.kontostandGeben() -  0));
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);
         KundeAbhebenPanel.add(KundeAbhebenText);
         KundeAbhebenButton = new JButton("OK");
         KundeAbhebenButton.setBorder(null);
         KundeAbhebenButton.setBounds(310,100,90,50);
-        KundeAbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeAbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // KundeAbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // KundeAbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeAbhebenButton.addActionListener(this);
         KundeAbhebenPanel.add(KundeAbhebenButton);
         KundeAbheben.add(KundeAbhebenPanel);
@@ -186,8 +189,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlenButton = new JButton("OK");
         KundeEinzahlenButton.setBorder(null);
         KundeEinzahlenButton.setBounds(310,100,90,50);
-        KundeEinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeEinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // KundeEinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // KundeEinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeEinzahlenButton.addActionListener(this);
         KundeEinzahlenPanel.add(KundeEinzahlenButton);
         KundeEinzahlen.add(KundeEinzahlenPanel);
@@ -207,8 +210,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontoauszugButton = new JButton("OK");
         KundeKontoauszugButton.setBorder(null);
         KundeKontoauszugButton.setBounds(310,100,90,50);
-        KundeKontoauszugButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        KundeKontoauszugButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        // KundeKontoauszugButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // KundeKontoauszugButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         KundeKontoauszugButton.addActionListener(this);
         KundeKontoauszugPanel.add(KundeKontoauszugButton);
         KundeKontoauszug.add(KundeKontoauszugPanel);
