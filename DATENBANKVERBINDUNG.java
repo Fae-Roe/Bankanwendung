@@ -88,10 +88,8 @@ public class DATENBANKVERBINDUNG
     public double kontostandGeben()
     {
         double kont = -1;
-
         //verwende den Namen test, der ist in der Tabelle hinterlegt
         db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
-
         if(db.neuerDatensatz())
         {
             kont = db.getInt(1);
@@ -166,7 +164,7 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
     }
-    
+
     public int kundennummerGeben()
     {
         int kun = -1;
@@ -185,7 +183,7 @@ public class DATENBANKVERBINDUNG
     {
         db.conExecute("UPDATE konto SET `kundennummer` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }
-    
+
     // nicht fertig
     public boolean LogIn(int BenutzerID,int pin)
     {
