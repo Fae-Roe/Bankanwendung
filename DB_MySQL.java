@@ -88,7 +88,7 @@ public class DB_MySQL {
 
         try {
             // 1. JDBC-Treiber laden
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
             // 2. Datenbank-URL spezifizieren
             // String dbUrl = "jdbc:odbc:EAdressen";
