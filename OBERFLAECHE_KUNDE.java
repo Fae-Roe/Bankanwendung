@@ -137,7 +137,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenPanel = new JPanel();
         AbhebenPanel.setLayout(null);
         AbhebenLabel = new JLabel("Abzuhebender Betrag:");
-        AbhebenLabel.setFont(AbhebenLabel.getFont().deriveFont((float) 30));
+        AbhebenLabel.setFont(AbhebenLabel.getFont().deriveFont((float) 20));
         AbhebenLabel.setBounds(20,180,300,50);
         AbhebenPanel.add(AbhebenLabel);
         AbhebenT = new JTextField(10);
@@ -212,7 +212,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlen.setResizable(false);
         KundeEinzahlen.setModal(true);
         KundeEinzahlenText = new JLabel("eingezahlter Betrag: ");
-        KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 30));
+        KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 20));
         KundeEinzahlenText.setBounds(10,10,720,100);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
         EinzahlenT = new JTextField(10);
