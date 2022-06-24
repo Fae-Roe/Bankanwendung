@@ -155,8 +155,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 BenutzerIDText = Integer.parseInt(BenutzerIDTextfeld.getText());
                 if(dab.LogIn(BenutzerIDText,PINPasswort))
                 {
-                    ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
-
+        
                     int pin = 1;
                     dab.db.conAbfrage("SELECT `pin` FROM `konto` WHERE kontonummer = " + BenutzerIDText);
                     if(dab.db.neuerDatensatz())
