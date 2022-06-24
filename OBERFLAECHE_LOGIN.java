@@ -305,7 +305,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             LoginFehlermeldung.setVisible(false);
         }
 
-    }
+    
 
     else if(ae.getSource() == this.LoginFehlermeldungButton)
     {
@@ -314,6 +314,4 @@ public class OBERFLAECHE_LOGIN implements ActionListener
 }
 }
 }
-}
-
 }
