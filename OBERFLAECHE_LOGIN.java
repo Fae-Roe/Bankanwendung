@@ -155,11 +155,11 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 BenutzerIDText = Integer.parseInt(BenutzerIDTextfeld.getText());
                 if(dab.LogIn(BenutzerIDText,PINPasswort))
                 {
-<<<<<<< HEAD
+
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
 
 
-=======
+
                     int pin = 1;
                     dab.db.conAbfrage("SELECT `pin` FROM `konto` WHERE kontonummer = " + BenutzerIDText);
                     if(dab.db.neuerDatensatz())
@@ -170,19 +170,19 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
                         System.out.println("Login Fenster schließen");
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+
                         LoginFrame.setVisible(false);
                     }
-<<<<<<< HEAD
+
               System.out.println("Login Fenster schließen");
                         LoginFrame.setVisible(false);
 
-=======
+
                     else
                     {
                         LoginFehlermeldung.setVisible(true);
                     }
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+
                 }
                 else
                 {
@@ -192,7 +192,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             catch(NumberFormatException e)
             {
                 LoginFehlermeldung.setVisible(true);
-<<<<<<< HEAD
+
 
             
 
@@ -234,7 +234,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             // Auswahlfenster.setVisible(false);
             // LoginFrame.setVisible(false);
             // LoginPanel.setVisible(false);
-=======
+
             }
         }
         // else if(ae.getSource() == this.AuswahlButton)
@@ -253,7 +253,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         // Auswahlfenster.setVisible(false);
         // LoginFrame.setVisible(false);
         // LoginPanel.setVisible(false);
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+
         // }
         else if(ae.getSource() == this.SchliessenButton)
         {

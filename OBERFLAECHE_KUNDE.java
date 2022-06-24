@@ -111,11 +111,9 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontostand.setSize(720,200);
         KundeKontostand.setResizable(false);
         KundeKontostand.setModal(true);
-<<<<<<< HEAD
-        KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben(BenutzerID));
-=======
         KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben());
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+        KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben());
+
         KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
         KundeKontostandText.setBounds(10,10,720,100);
         KundeKontostandPanel.add(KundeKontostandText);
@@ -142,13 +140,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenPanel.add(AbhebenT);
         AbhebenButton = new JButton("Fertig");
         AbhebenButton.setBorder(null);
-<<<<<<< HEAD
 
-        
         AbhebenButton.setBounds(310,100,90,50);
-=======
         AbhebenButton.setBounds(285,320,200,50);
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+
         AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
         AbhebenButton.addActionListener(this);
@@ -165,11 +160,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbheben.setSize(720,200);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-<<<<<<< HEAD
-        KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben(BenutzerID) -  0));
-=======
         KundeAbhebenText = new JLabel("abgehobener Betrag: "+ (datenbank.kontostandGeben() -  0));
->>>>>>> 11495e400f06405f39bfd950041ebceb6de1adcc
+       
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,720,100);
         KundeAbhebenPanel.add(KundeAbhebenText);
