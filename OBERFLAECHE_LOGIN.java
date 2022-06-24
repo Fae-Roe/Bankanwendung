@@ -142,7 +142,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         // AuswahlfensterPanel.add(AuswahlButton);
         // Auswahlfenster.add(AuswahlfensterPanel);
 
-        dab = new DATENBANKVERBINDUNG();
+        
     }
 
     public void actionPerformed (ActionEvent ae)
@@ -153,6 +153,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             {
                 PINPasswort = Integer.parseInt(PINPasswortfeld.getText());
                 BenutzerIDText = Integer.parseInt(BenutzerIDTextfeld.getText());
+                dab = new DATENBANKVERBINDUNG(BenutzerIDText);
                 if(dab.LogIn(BenutzerIDText,PINPasswort))
                 {
 
