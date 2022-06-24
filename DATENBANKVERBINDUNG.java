@@ -14,6 +14,7 @@
 public class DATENBANKVERBINDUNG
 {
     DB_MySQL db;
+    int kNr;
     public DATENBANKVERBINDUNG()
     {
         db = new DB_MySQL();
@@ -65,7 +66,7 @@ public class DATENBANKVERBINDUNG
     // db.conExecute("UPDATE konto SET `Alter` = '" + aNeu + "' WHERE Name = '" + benutzername + "'"); 
     // }
 
-    public int pinGeben(int kNr)
+    public int pinGeben()
     {
         int pin = 1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -83,7 +84,7 @@ public class DATENBANKVERBINDUNG
         db.conExecute("UPDATE konto SET `pin` = '" + pNeu + "' WHERE pin = '" + pin + "'"); 
     }
 
-    public double kontostandGeben(int kNr)
+    public double kontostandGeben()
     {
         double kont = -1;
 
@@ -97,12 +98,12 @@ public class DATENBANKVERBINDUNG
         return kont;
     }
 
-    public void kontostandAendern(int kNr, double sNeu)
+    public void kontostandAendern(double sNeu)
     {
         db.conExecute("UPDATE konto SET `kontostand` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }
 
-    public int zinssatzGeben(int kNr)
+    public int zinssatzGeben()
     {
         int zins = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -114,12 +115,12 @@ public class DATENBANKVERBINDUNG
         return zins;
     }
 
-    public void zinssatzAendern(int kNr, boolean sNeu)
+    public void zinssatzAendern(boolean sNeu)
     {
         db.conExecute("UPDATE konto SET `zinssatz` = " + sNeu + "  WHERE kontonummer = " + kNr); 
     }
 
-    public String besitzerGeben(int kNr)
+    public String besitzerGeben()
     {
         String bes = "s";
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -131,7 +132,7 @@ public class DATENBANKVERBINDUNG
         return bes;
     }
 
-    public double ueberziehungsrahmenGeben(int kNr)
+    public double ueberziehungsrahmenGeben()
     {
         double ueb = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -143,12 +144,12 @@ public class DATENBANKVERBINDUNG
         return ueb;
     }
 
-    public void ueberziehungsrahmenAendern(int kontonummer, double sNeu)
+    public void ueberziehungsrahmenAendern(double sNeu)
     {
-        db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kontonummer + "'"); 
+        db.conExecute("UPDATE konto SET `ueberziehungsrahmen` = '" + sNeu + "' WHERE kontonummer = '" + kNr); 
     }
 
-    public int kontoartGeben(int kNr)
+    public int kontoartGeben()
     {
         int kontart = -1;
         //verwende den Namen test, der ist in der Tabelle hinterlegt
@@ -160,12 +161,12 @@ public class DATENBANKVERBINDUNG
         return kontart;
     }
 
-    public void kontoartaendern(int kNr, int kNeu)
+    public void kontoartaendern(int kNeu)
     {
         db.conExecute("UPDATE konto SET `girokonto` = " + kNeu + "  WHERE kontonummer = " + kNr); 
     }
     
-    public int kundennummerGeben(int kNr)
+    public int kundennummerGeben()
     {
         int kun = -1;
 
@@ -179,7 +180,7 @@ public class DATENBANKVERBINDUNG
         return kun;
     }
 
-    public void kundennummerAendern(double kNr, int sNeu)
+    public void kundennummerAendern(int sNeu)
     {
         db.conExecute("UPDATE konto SET `kundennummer` = '" + sNeu + "' WHERE kontonummer = '" + kNr + "'"); 
     }

@@ -38,7 +38,7 @@ public class SPARKONTO extends KONTO
         if(neuerKontostand >= 0)
         {
             kontostand = neuerKontostand;
-            dbVerbindung.kontostandAendern(kontonummer, kontostand);
+            dbVerbindung.kontostandAendern(kontostand);
             return true;
         }
         
