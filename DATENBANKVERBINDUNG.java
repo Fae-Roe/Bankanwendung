@@ -15,9 +15,10 @@ public class DATENBANKVERBINDUNG
 {
     DB_MySQL db;
     int kNr;
-    public DATENBANKVERBINDUNG()
+    public DATENBANKVERBINDUNG(int kontNr)
     {
         db = new DB_MySQL();
+        kNr = kontNr;
         Verbinden();
     }
 

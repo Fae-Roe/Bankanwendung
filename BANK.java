@@ -17,9 +17,9 @@ public class BANK
     private List<ANGESTELLTER> angestelltenListe = new ArrayList<ANGESTELLTER>();
     private int neueKontonummer;
 
-    public BANK()
+    public BANK(int kNr)
     {
-        dbVerbindung = new DATENBANKVERBINDUNG();
+        dbVerbindung = new DATENBANKVERBINDUNG(kNr);
         kontoListe = new ArrayList<KONTO>();
         kundenListe = new ArrayList<KUNDE>();
         angestelltenListe = new ArrayList<ANGESTELLTER>();

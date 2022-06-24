@@ -11,9 +11,9 @@ public class Test
 {
     BANK b;
 
-    public Test()
+    public Test(int Knr)
     {
-        b = new BANK();
+        b = new BANK(Knr);
     }
 
     public void Run()
