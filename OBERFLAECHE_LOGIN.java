@@ -142,9 +142,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         // AuswahlfensterPanel.add(AuswahlButton);
         // Auswahlfenster.add(AuswahlfensterPanel);
 
-        
     }
-
     public void actionPerformed (ActionEvent ae)
     {
         if(ae.getSource() == this.LoginButton)
@@ -168,9 +166,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
                         System.out.println("Login Fenster schließen");
 
-
                         LoginFrame.setVisible(false);
-                    
 
                     }else
 
@@ -187,14 +183,6 @@ public class OBERFLAECHE_LOGIN implements ActionListener
             catch(NumberFormatException e)
             {
                 LoginFehlermeldung.setVisible(true);
- LoginFrame.setVisible(false);
-        
-        if(ae.getSource() == this.AuswahlButton)
-        {
-            if(Auswahl1.isSelected())
-            {
-                ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
-
                 LoginFrame.setVisible(false);
 
                 if(ae.getSource() == this.AuswahlButton)
@@ -202,116 +190,120 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     if(Auswahl1.isSelected())
                     {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
+
                         LoginFrame.setVisible(false);
+
+                        if(ae.getSource() == this.AuswahlButton)
+                        {
+                            if(Auswahl1.isSelected())
+                            {
+                                ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
+                                LoginFrame.setVisible(false);
+                            }
+                            else
+                            {
+                                ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,dab);
+                                LoginFrame.setVisible(false);
+                            }
+                            Auswahlfenster.setVisible(false);
+                            LoginFrame.setVisible(false);
+                            LoginPanel.setVisible(false);
+
+                        }
                     }
-                    else
-                    {
-                        ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,dab);
-                        LoginFrame.setVisible(false);
-                    }
-                    Auswahlfenster.setVisible(false);
-                    LoginFrame.setVisible(false);
-                    LoginPanel.setVisible(false);
+                    // else if(ae.getSource() == this.AuswahlButton)
+                    // {
+                    // if(Auswahl1.isSelected())
+                    // {
+                    // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+
+                    // LoginFrame.setVisible(false);
+                    // }
+                    // else
+                    // {
+                    // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                    // LoginFrame.setVisible(false);
+                    // }
+                    // Auswahlfenster.setVisible(false);
+                    // LoginFrame.setVisible(false);
+                    // LoginPanel.setVisible(false);
 
                 }
-            }
-            // else if(ae.getSource() == this.AuswahlButton)
-            // {
-            // if(Auswahl1.isSelected())
-            // {
-            // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
-
-            // LoginFrame.setVisible(false);
-            // }
-            // else
-            // {
-            // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
-            // LoginFrame.setVisible(false);
-            // }
-            // Auswahlfenster.setVisible(false);
-            // LoginFrame.setVisible(false);
-            // LoginPanel.setVisible(false);
-
-
-        }
-
             
-    
-    // else if(ae.getSource() == this.AuswahlButton)
-    // {
-    // if(Auswahl1.isSelected())
-    // {
-    // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+                // else if(ae.getSource() == this.AuswahlButton)
+                // {
+                // if(Auswahl1.isSelected())
+                // {
+                // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
 
-        // LoginFrame.setVisible(false);
-        // }
-        // else
-        // {
-        // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
-        // LoginFrame.setVisible(false);
-        // }
-        // Auswahlfenster.setVisible(false);
-        // LoginFrame.setVisible(false);
-        // LoginPanel.setVisible(false);
+                // LoginFrame.setVisible(false);
+                // }
+                // else
+                // {
+                // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                // LoginFrame.setVisible(false);
+                // }
+                // Auswahlfenster.setVisible(false);
+                // LoginFrame.setVisible(false);
+                // LoginPanel.setVisible(false);
 
-        // }
-       else if(ae.getSource() == this.SchliessenButton)
-        {
-            System.exit(0);
+                // }
+                else if(ae.getSource() == this.SchliessenButton)
+                {
+                    System.exit(0);
+                }
+                else if(ae.getSource() == this.LoginFehlermeldungButton)
+                {
+                    LoginFehlermeldung.setVisible(false);
+                }
+
+                // LoginFrame.setVisible(false);
+                // }
+                // else
+                // {
+                // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                // LoginFrame.setVisible(false);
+                // }
+                // Auswahlfenster.setVisible(false);
+                // LoginFrame.setVisible(false);
+                // LoginPanel.setVisible(false);
+                // }
+                if(ae.getSource() == this.SchliessenButton)
+                {
+
+                    // else if(ae.getSource() == this.AuswahlButton)
+                    // {
+                    // if(Auswahl1.isSelected())
+                    // {
+                    // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
+
+                    // LoginFrame.setVisible(false);
+                    // }
+                    // else
+                    // {
+                    // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
+                    // LoginFrame.setVisible(false);
+                    // }
+                    // Auswahlfenster.setVisible(false);
+                    // LoginFrame.setVisible(false);
+                    // LoginPanel.setVisible(false);
+                    // }
+                }
+                else if(ae.getSource() == this.SchliessenButton)
+                {
+                    System.exit(0);
+                }
+                else if(ae.getSource() == this.LoginFehlermeldungButton)
+                {
+                    LoginFehlermeldung.setVisible(false);
+                }
+
+
+                else if(ae.getSource() == this.LoginFehlermeldungButton)
+                {
+                    LoginFehlermeldung.setVisible(false);
+                }
+            }
         }
-        else if(ae.getSource() == this.LoginFehlermeldungButton)
-        {
-            LoginFehlermeldung.setVisible(false);
-        }
-
-    // LoginFrame.setVisible(false);
-    // }
-    // else
-    // {
-    // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
-    // LoginFrame.setVisible(false);
-    // }
-    // Auswahlfenster.setVisible(false);
-    // LoginFrame.setVisible(false);
-    // LoginPanel.setVisible(false);
-    // }
-    if(ae.getSource() == this.SchliessenButton)
-    {
-   
-        // else if(ae.getSource() == this.AuswahlButton)
-        // {
-        // if(Auswahl1.isSelected())
-        // {
-        // ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,db);
-
-        // LoginFrame.setVisible(false);
-        // }
-        // else
-        // {
-        // ansicht1 = new OBERFLAECHE_ANGESTELLTER(BenutzerIDText,db);
-        // LoginFrame.setVisible(false);
-        // }
-        // Auswahlfenster.setVisible(false);
-        // LoginFrame.setVisible(false);
-        // LoginPanel.setVisible(false);
-        // }
     }
-        else if(ae.getSource() == this.SchliessenButton)
-        {
-            System.exit(0);
-        }
-        else if(ae.getSource() == this.LoginFehlermeldungButton)
-        {
-            LoginFehlermeldung.setVisible(false);
-        }
-
-    
-
-    else if(ae.getSource() == this.LoginFehlermeldungButton)
-    {
-        LoginFehlermeldung.setVisible(false);
-    }
-}
-}
-}
 }

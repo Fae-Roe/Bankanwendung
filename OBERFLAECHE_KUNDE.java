@@ -16,44 +16,46 @@ public class OBERFLAECHE_KUNDE implements ActionListener
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
-    
+
     public JButton KontostandB;
     public JButton AbhebenB;
     public JButton EinzahlenB;
     public JButton KontoauszugB;
-    
+
     public JDialog KundeKontostand;
     public JPanel KundeKontostandPanel;
     public JLabel KundeKontostandText;
     public JButton KundeKontostandButton;
-    
+
     public JFrame AbhebenFrame;
     public JPanel AbhebenPanel;
-    public JButton AbhebenButton;
+    public JButton AbhebenokButton;
+    public JButton AbhebenSchließenButton;
     public JTextField AbhebenT;
     public double betragAbheben;
-    
+    public JLabel AbhebenLabel;
+
     public JDialog KundeAbheben;
     public JPanel KundeAbhebenPanel;
     public JLabel KundeAbhebenText;
     public JButton KundeAbhebenButton;
-    
+
     public JFrame EinzahlenFrame;
     public JPanel EinzahlenPanel;
     public JButton EinzahlenButton;
     private JTextField EinzahlenT;
     private double betragEinzahlen;
-    
+
     public JDialog KundeEinzahlen;
     public JPanel KundeEinzahlenPanel;
     public JLabel KundeEinzahlenText;
     public JButton KundeEinzahlenButton;
-    
+
     public JDialog KundeKontoauszug;
     public JPanel KundeKontoauszugPanel;
     public JLabel KundeKontoauszugText;
     public JButton KundeKontoauszugButton;
-    
+
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
         KundeFrame = new JFrame("Kunde");
@@ -65,7 +67,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         KundePanel = new JPanel();
         KundePanel.setLayout(null);
-        
+
         KontostandB = new JButton("Kontostand");
         KontostandB.addActionListener(this);
         KontostandB.setBorder(null);
@@ -83,7 +85,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         // KontoauszugB.setIcon(new ImageIcon("Bilder\\kontoauszug0.JPG"));
         // KontoauszugB.setRolloverIcon(new ImageIcon("Bilder\\kontoauszug1.JPG"));
         KundePanel.add(KontoauszugB);
-        
+
         AbhebenB = new JButton("Abheben");
         AbhebenB.addActionListener(this);
         AbhebenB.setBorder(null);
@@ -91,7 +93,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         // AbhebenB.setIcon(new ImageIcon("Bilder\\abheben0.JPG"));
         // AbhebenB.setRolloverIcon(new ImageIcon("Bilder\\abheben1.JPG"));
         KundePanel.add(AbhebenB);
-        
+
         EinzahlenB = new JButton("Einzahlen");
         EinzahlenB.addActionListener(this);
         EinzahlenB.setBorder(null);
@@ -99,10 +101,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         // EinzahlenB.setIcon(new ImageIcon("Bilder\\einzahlen0.JPG"));
         // EinzahlenB.setRolloverIcon(new ImageIcon("Bilder\\einzahlen1.JPG"));
         KundePanel.add(EinzahlenB);
-        
+
         KundeFrame.add(KundePanel);
         KundeFrame.setVisible(true);
-        
+
         KundeKontostand = new JDialog();
         KundeKontostand.setLocationRelativeTo(null);
         KundeKontostandPanel = new JPanel();
@@ -125,34 +127,38 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontostandButton.addActionListener(this);
         KundeKontostandPanel.add(KundeKontostandButton);
         KundeKontostand.add(KundeKontostandPanel);
-        
+
         AbhebenFrame = new JFrame("Bitte Betrag zum Abheben eingeben");
         AbhebenFrame.setSize(560,420);
         AbhebenFrame.setResizable(false);
         AbhebenFrame.setLocationRelativeTo(null);
-        AbhebenFrame.setIconImage(BankIcon.getImage());
+        // AbhebenFrame.setIconImage(BankIcon.getImage());
         AbhebenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         AbhebenPanel = new JPanel();
         AbhebenPanel.setLayout(null);
+        AbhebenLabel = new JLabel("Abzuhebender Betrag:");
+        AbhebenLabel.setFont(AbhebenLabel.getFont().deriveFont((float) 30));
+        AbhebenLabel.setBounds(20,180,300,50);
+        AbhebenPanel.add(AbhebenLabel);
         AbhebenT = new JTextField(10);
         AbhebenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
         AbhebenT.setBounds(325,180,200,50);
-        AbhebenFrame.add(AbhebenT);
-        AbhebenButton = new JButton("Fertig");
-        AbhebenButton.setBorder(null);
-        AbhebenButton.setBounds(310,100,90,50);
-
-        AbhebenButton.setBounds(285,320,200,50);
-        AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        AbhebenPanel.add(AbhebenT);
+        AbhebenokButton = new JButton("Fertig");
+        AbhebenokButton.setBorder(null);
+        AbhebenokButton.setBounds(285,320,200,50);
         // AbhebenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
         // AbhebenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
-        AbhebenButton.addActionListener(this);
-        AbhebenPanel.add(AbhebenButton);
-        AbhebenPanel.add(AbhebenPanel);
+        AbhebenSchließenButton = new JButton("Schließen");
+        AbhebenSchließenButton.addActionListener(this);
+        AbhebenSchließenButton.setBorder(null);
+        AbhebenSchließenButton.setBounds(60,320,200,50);
+        AbhebenPanel.add(AbhebenokButton);
+        AbhebenPanel.add(AbhebenSchließenButton);
         AbhebenFrame.add(AbhebenPanel);
         AbhebenFrame.setVisible(false);
-        
+        AbhebenokButton.addActionListener(this);
+
         KundeAbheben = new JDialog();
         KundeAbheben.setLocationRelativeTo(null);
         KundeAbhebenPanel = new JPanel();
@@ -173,7 +179,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbhebenButton.addActionListener(this);
         KundeAbhebenPanel.add(KundeAbhebenButton);
         KundeAbheben.add(KundeAbhebenPanel);
-        
+
         EinzahlenFrame = new JFrame("Bitte Betrag zum Einzahlen eingeben");
         EinzahlenFrame.setSize(560,420);
         EinzahlenFrame.setResizable(false);
@@ -196,7 +202,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenPanel.add(EinzahlenPanel);
         EinzahlenFrame.add(EinzahlenPanel);
         EinzahlenFrame.setVisible(false);
-        
+
         KundeEinzahlen = new JDialog();
         KundeEinzahlen.setLocationRelativeTo(null);
         KundeEinzahlenPanel = new JPanel();
@@ -221,7 +227,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlenButton.addActionListener(this);
         KundeEinzahlenPanel.add(KundeEinzahlenButton);
         KundeEinzahlen.add(KundeEinzahlenPanel);
-        
+
         KundeKontoauszug = new JDialog();
         KundeKontoauszug.setLocationRelativeTo(null);
         KundeKontoauszugPanel = new JPanel();
@@ -243,10 +249,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontoauszugPanel.add(KundeKontoauszugButton);
         KundeKontoauszug.add(KundeKontoauszugPanel);
     }
-    
+
     public void actionPerformed(ActionEvent ae)
     {
-         if(ae.getSource() == this.KontostandB)
+        if(ae.getSource() == this.KontostandB)
         {
             KundeKontostand.setVisible(true);
         }
