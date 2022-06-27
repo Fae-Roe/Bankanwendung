@@ -42,7 +42,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
 
     public JFrame EinzahlenFrame;
     public JPanel EinzahlenPanel;
-    public JButton EinzahlenButton;
+    public JButton EinzahlenokButton;
+    public JButton EinzahlenSchließenButton;
     private JTextField EinzahlenT;
     private double betragEinzahlen;
 
@@ -167,7 +168,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbheben.setSize(50,20);
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
-        KundeAbhebenText = new JLabel("abgehobener Betrag: " + (datenbank.kontostandGeben() -  0));
+        KundeAbhebenText = new JLabel("abgehobener Betrag: " + this.betragAbheben);
+        //DATENBANKVERBINDUNG.kontostandAendern(datenbank.kontostandGeben()-this.betragAbheben);
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,100,50);
         KundeAbhebenPanel.add(KundeAbhebenText);
@@ -192,13 +194,17 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
         EinzahlenT.setBounds(325,180,200,50);
         EinzahlenFrame.add(AbhebenT);
-        EinzahlenButton = new JButton("Fertig");
-        EinzahlenButton.setBorder(null);
-        EinzahlenButton.setBounds(310,100,90,50);
-        //EinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
-        //EinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
-        EinzahlenButton.addActionListener(this);
-        EinzahlenPanel.add(EinzahlenButton);
+        EinzahlenokButton = new JButton("Fertig");
+        EinzahlenokButton.setBorder(null);
+        EinzahlenokButton.setBounds(285,320,200,50);
+        // EinzahlenButton.setIcon(new ImageIcon("Bilder\\ok0.JPG"));
+        // EinzahlenButton.setRolloverIcon(new ImageIcon("Bilder\\ok1.JPG"));
+        EinzahlenSchließenButton = new JButton("Schließen");
+        EinzahlenSchließenButton.addActionListener(this);
+        EinzahlenSchließenButton.setBorder(null);
+        EinzahlenSchließenButton.setBounds(60,320,200,50);
+        EinzahlenPanel.add(EinzahlenokButton);
+        EinzahlenPanel.add(EinzahlenSchließenButton);
         EinzahlenPanel.add(EinzahlenPanel);
         EinzahlenFrame.add(EinzahlenPanel);
         EinzahlenFrame.setVisible(false);
@@ -211,7 +217,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlen.setSize(200,50);
         KundeEinzahlen.setResizable(false);
         KundeEinzahlen.setModal(true);
-        KundeEinzahlenText = new JLabel("eingezahlter Betrag: ");
+        KundeEinzahlenText = new JLabel("eingezahlter Betrag: "+ this.betragEinzahlen);
         KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 20));
         KundeEinzahlenText.setBounds(10,10,720,100);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
@@ -283,6 +289,22 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         else if(ae.getSource() == this.KundeKontoauszugButton)
         {
             KundeKontoauszug.setVisible(false);
+        }
+        else if(ae.getSource() == this.AbhebenSchließenButton)
+        {
+            AbhebenFrame.setVisible(false);
+        }
+        else if(ae.getSource() == this.AbhebenokButton)
+        {
+            AbhebenFrame.setVisible(false);
+        }
+        else if(ae.getSource() == this.EinzahlenSchließenButton)
+        {
+            EinzahlenFrame.setVisible(false);
+        }
+        else if(ae.getSource() == this.EinzahlenokButton)
+        {
+            EinzahlenFrame.setVisible(false);
         }
     }
 
