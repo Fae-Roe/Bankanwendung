@@ -169,7 +169,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
         KundeAbhebenText = new JLabel("abgehobener Betrag: " + this.betragAbheben);
-        //DATENBANKVERBINDUNG.kontostandAendern(datenbank.kontostandGeben()-this.betragAbheben);
+        datenbank.kontostandAendern(datenbank.kontostandGeben()-this.betragAbheben);
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,100,50);
         KundeAbhebenPanel.add(KundeAbhebenText);
@@ -218,6 +218,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlen.setResizable(false);
         KundeEinzahlen.setModal(true);
         KundeEinzahlenText = new JLabel("eingezahlter Betrag: "+ this.betragEinzahlen);
+        datenbank.kontostandAendern(datenbank.kontostandGeben()+this.betragEinzahlen);
         KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 20));
         KundeEinzahlenText.setBounds(10,10,720,100);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
