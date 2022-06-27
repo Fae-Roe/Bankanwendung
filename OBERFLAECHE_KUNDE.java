@@ -186,7 +186,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenFrame.setSize(560,420);
         EinzahlenFrame.setResizable(false);
         EinzahlenFrame.setLocationRelativeTo(null);
-        EinzahlenFrame.setIconImage(BankIcon.getImage());
+        //EinzahlenFrame.setIconImage(BankIcon.getImage());
         EinzahlenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         EinzahlenPanel = new JPanel();
         EinzahlenPanel.setLayout(null);
@@ -268,7 +268,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.EinzahlenB)
         {
-            KundeEinzahlen.setVisible(true);
+            EinzahlenFrame.setVisible(true);
         }
         else if(ae.getSource() == this.KontoauszugB)
         {
