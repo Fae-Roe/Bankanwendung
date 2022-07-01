@@ -126,7 +126,6 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontostand.setModal(true);
         KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben());
 
-        KundeKontostandText = new JLabel("Kontostand: "+ datenbank.kontostandGeben());
         KundeKontostandText.setFont(KundeKontostandText.getFont().deriveFont((float) 30));
         KundeKontostandText.setBounds(10,10,720,100);
         KundeKontostandPanel.add(KundeKontostandText);
