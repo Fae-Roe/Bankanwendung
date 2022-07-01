@@ -312,6 +312,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         else if(ae.getSource() == this.AbhebenokButton)
         {      
             betragAbheben = Integer.parseInt(AbhebenT.getText());
+            db = new DATENBANKVERBINDUNG(betragAbheben);
             db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
             AbhebenFrame.setVisible(false);
         }
@@ -322,6 +323,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         else if(ae.getSource() == this.EinzahlenokButton)
         {
              betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
+             db = new DATENBANKVERBINDUNG(betragEinzahlen);
              db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
              EinzahlenFrame.setVisible(false);
         }
