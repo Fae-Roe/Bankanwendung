@@ -56,6 +56,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JPanel KundeKontoauszugPanel;
     public JLabel KundeKontoauszugText;
     public JButton KundeKontoauszugButton;
+    
+    public DATENBANKVERBINDUNG db;
 
     public OBERFLAECHE_KUNDE(int BenutzerID, DATENBANKVERBINDUNG datenbank)
     {
@@ -169,7 +171,6 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeAbheben.setResizable(false);
         KundeAbheben.setModal(true);
         KundeAbhebenText = new JLabel("abgehobener Betrag: " + this.betragAbheben);
-        datenbank.kontostandAendern(datenbank.kontostandGeben()-this.betragAbheben);
         KundeAbhebenText.setFont(KundeAbhebenText.getFont().deriveFont((float) 30));
         KundeAbhebenText.setBounds(10,10,100,50);
         KundeAbhebenPanel.add(KundeAbhebenText);
@@ -218,7 +219,6 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlen.setResizable(false);
         KundeEinzahlen.setModal(true);
         KundeEinzahlenText = new JLabel("eingezahlter Betrag: "+ this.betragEinzahlen);
-        datenbank.kontostandAendern(datenbank.kontostandGeben()+this.betragEinzahlen);
         KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 20));
         KundeEinzahlenText.setBounds(10,10,720,100);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
@@ -255,8 +255,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeKontoauszugButton.addActionListener(this);
         KundeKontoauszugPanel.add(KundeKontoauszugButton);
         KundeKontoauszug.add(KundeKontoauszugPanel);
+        
+        db = datenbank;
     }
-
+    
     public void actionPerformed(ActionEvent ae)
     {
         if(ae.getSource() == this.KontostandB)
@@ -297,7 +299,20 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.AbhebenokButton)
         {
-            AbhebenFrame.setVisible(false);
+            try
+            {
+                betragAbheben = Integer.parseInt(AbhebenT.getText());
+                db = new DATENBANKVERBINDUNG(0);
+                db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
+                AbhebenFrame.setVisible(false);
+            }
+            catch(NumberFormatException e)
+            {
+                 betragAbheben = Integer.parseInt(AbhebenT.getText());
+                db = new DATENBANKVERBINDUNG(0);
+                db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
+                AbhebenFrame.setVisible(false);
+            }
         }
         else if(ae.getSource() == this.EinzahlenSchließenButton)
         {
@@ -305,7 +320,20 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.EinzahlenokButton)
         {
-            EinzahlenFrame.setVisible(false);
+            try
+            {
+                betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
+                db = new DATENBANKVERBINDUNG(0);
+                db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
+                EinzahlenFrame.setVisible(false);
+            }
+            catch(NumberFormatException e)
+            {
+                 betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
+                db = new DATENBANKVERBINDUNG(0);
+                db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
+                EinzahlenFrame.setVisible(false);
+            }
         }
     }
 
