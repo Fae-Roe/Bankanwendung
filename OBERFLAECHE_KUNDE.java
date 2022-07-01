@@ -75,7 +75,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         SchliessenButton = new JButton("Schließen");
         SchliessenButton.addActionListener(this);
         SchliessenButton.setBorder(null);
-        SchliessenButton.setBounds(60,320,200,50);
+        SchliessenButton.setBounds(210,320,100,50);
         KundePanel.add(SchliessenButton);
 
         KontostandB = new JButton("Kontostand");
