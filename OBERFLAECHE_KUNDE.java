@@ -33,7 +33,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JButton AbhebenokButton;
     public JButton AbhebenSchließenButton;
     public JTextField AbhebenT;
-    public int betragAbheben;
+    public double betragAbheben;
     public JLabel AbhebenLabel;
 
     public JDialog KundeAbheben;
@@ -46,7 +46,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JButton EinzahlenokButton;
     public JButton EinzahlenSchließenButton;
     private JTextField EinzahlenT;
-    private int betragEinzahlen;
+    private double betragEinzahlen;
     public JLabel EinzahlenLabel;
 
     public JDialog KundeEinzahlen;
@@ -306,9 +306,9 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.AbhebenokButton)
         {      
-            betragAbheben = Integer.parseInt(AbhebenT.getText());
-            db = new DATENBANKVERBINDUNG(betragAbheben);
-            db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
+            betragAbheben = Double.parseDouble(AbhebenT.getText());
+            double i = db.kontostandGeben();
+            db.kontostandAendern(i-this.betragAbheben);
             AbhebenFrame.setVisible(false);
         }
         else if(ae.getSource() == this.EinzahlenSchließenButton)
@@ -317,8 +317,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.EinzahlenokButton)
         {
-             betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
-             db = new DATENBANKVERBINDUNG(betragEinzahlen);
+             betragEinzahlen = Double.parseDouble(EinzahlenT.getText());
              db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
              EinzahlenFrame.setVisible(false);
         }
