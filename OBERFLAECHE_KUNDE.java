@@ -202,7 +202,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenLabel = new JLabel("Einzuzahlender Betrag:");
         EinzahlenLabel.setFont(EinzahlenLabel.getFont().deriveFont((float) 20));
         EinzahlenLabel.setBounds(20,180,300,50);
-        EinzahlenPanel.add(AbhebenLabel);
+        EinzahlenPanel.add(EinzahlenLabel);
         EinzahlenT = new JTextField(10);
         EinzahlenT.setFont(EinzahlenT.getFont().deriveFont((float) 30));
         EinzahlenT.setBounds(325,180,200,50);
@@ -227,17 +227,13 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeEinzahlenPanel = new JPanel();
         KundeEinzahlenPanel.setLayout(null);
         KundeEinzahlen.setTitle("Einzahlen");
-        KundeEinzahlen.setSize(200,50);
+        KundeEinzahlen.setSize(50,20);
         KundeEinzahlen.setResizable(false);
         KundeEinzahlen.setModal(true);
         KundeEinzahlenText = new JLabel("eingezahlter Betrag: "+ this.betragEinzahlen);
         KundeEinzahlenText.setFont(KundeEinzahlenText.getFont().deriveFont((float) 20));
-        KundeEinzahlenText.setBounds(10,10,720,100);
+        KundeEinzahlenText.setBounds(10,10,100,50);
         KundeEinzahlenPanel.add(KundeEinzahlenText);
-        EinzahlenT = new JTextField(10);
-        EinzahlenT.setFont(EinzahlenT.getFont().deriveFont((float) 30));
-        EinzahlenT.setBounds(325,180,200,50);
-        EinzahlenFrame.add(EinzahlenT);
         KundeEinzahlenButton = new JButton("OK");
         KundeEinzahlenButton.setBorder(null);
         KundeEinzahlenButton.setBounds(310,100,90,50);
