@@ -47,6 +47,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JButton EinzahlenSchließenButton;
     private JTextField EinzahlenT;
     private int betragEinzahlen;
+    public JLabel EinzahlenLabel;
 
     public JDialog KundeEinzahlen;
     public JPanel KundeEinzahlenPanel;
@@ -198,6 +199,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         EinzahlenPanel = new JPanel();
         EinzahlenPanel.setLayout(null);
+        EinzahlenLabel = new JLabel("Einzuzahlender Betrag:");
+        EinzahlenLabel.setFont(EinzahlenLabel.getFont().deriveFont((float) 20));
+        EinzahlenLabel.setBounds(20,180,300,50);
+        EinzahlenPanel.add(AbhebenLabel);
         EinzahlenT = new JTextField(10);
         EinzahlenT.setFont(EinzahlenT.getFont().deriveFont((float) 30));
         EinzahlenT.setBounds(325,180,200,50);
