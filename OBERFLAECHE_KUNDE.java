@@ -218,7 +218,6 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenSchließenButton.setBounds(60,320,200,50);
         EinzahlenPanel.add(EinzahlenokButton);
         EinzahlenPanel.add(EinzahlenSchließenButton);
-        EinzahlenPanel.add(EinzahlenPanel);
         EinzahlenFrame.add(EinzahlenPanel);
         EinzahlenFrame.setVisible(false);
 
