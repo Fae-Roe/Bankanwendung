@@ -16,6 +16,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
 {
     public JFrame KundeFrame;
     public JPanel KundePanel;
+    private JButton SchliessenButton;
 
     public JButton KontostandB;
     public JButton AbhebenB;
@@ -70,6 +71,12 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         KundeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         KundePanel = new JPanel();
         KundePanel.setLayout(null);
+        
+        SchliessenButton = new JButton("Schließen");
+        SchliessenButton.addActionListener(this);
+        SchliessenButton.setBorder(null);
+        SchliessenButton.setBounds(60,320,200,50);
+        KundePanel.add(SchliessenButton);
 
         KontostandB = new JButton("Kontostand");
         KontostandB.addActionListener(this);
@@ -328,6 +335,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
             {
                  
             }
+        }
+        else if(ae.getSource() == this.SchliessenButton)
+        {
+            KundeFrame.setVisible(false);
         }
     }
 
