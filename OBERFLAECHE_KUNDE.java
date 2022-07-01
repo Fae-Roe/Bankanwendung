@@ -318,7 +318,8 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         else if(ae.getSource() == this.EinzahlenokButton)
         {
              betragEinzahlen = Double.parseDouble(EinzahlenT.getText());
-             db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
+             double i = db.kontostandGeben();
+             db.kontostandAendern(i+this.betragEinzahlen);
              EinzahlenFrame.setVisible(false);
         }
         else if(ae.getSource() == this.SchliessenButton)
