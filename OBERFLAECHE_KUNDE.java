@@ -33,7 +33,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JButton AbhebenokButton;
     public JButton AbhebenSchließenButton;
     public JTextField AbhebenT;
-    public double betragAbheben;
+    public int betragAbheben;
     public JLabel AbhebenLabel;
 
     public JDialog KundeAbheben;
@@ -46,7 +46,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
     public JButton EinzahlenokButton;
     public JButton EinzahlenSchließenButton;
     private JTextField EinzahlenT;
-    private double betragEinzahlen;
+    private int betragEinzahlen;
 
     public JDialog KundeEinzahlen;
     public JPanel KundeEinzahlenPanel;
@@ -305,18 +305,11 @@ public class OBERFLAECHE_KUNDE implements ActionListener
             AbhebenFrame.setVisible(false);
         }
         else if(ae.getSource() == this.AbhebenokButton)
-        {
-            try
-            {
-                betragAbheben = Integer.parseInt(AbhebenT.getText());
-                db = new DATENBANKVERBINDUNG(0);
-                db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
-                AbhebenFrame.setVisible(false);
-            }
-            catch(NumberFormatException e)
-            {
-                
-            }
+        {      
+            betragAbheben = Integer.parseInt(AbhebenT.getText());
+            db = new DATENBANKVERBINDUNG(betragAbheben);
+            db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
+            AbhebenFrame.setVisible(false);
         }
         else if(ae.getSource() == this.EinzahlenSchließenButton)
         {
@@ -324,17 +317,10 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         }
         else if(ae.getSource() == this.EinzahlenokButton)
         {
-            try
-            {
-                betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
-                db = new DATENBANKVERBINDUNG(0);
-                db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
-                EinzahlenFrame.setVisible(false);
-            }
-            catch(NumberFormatException e)
-            {
-                 
-            }
+             betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
+             db = new DATENBANKVERBINDUNG(betragEinzahlen);
+             db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
+             EinzahlenFrame.setVisible(false);
         }
         else if(ae.getSource() == this.SchliessenButton)
         {
