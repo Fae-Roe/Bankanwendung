@@ -146,7 +146,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         AbhebenT = new JTextField(10);
         AbhebenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
         AbhebenT.setBounds(325,180,200,50);
-        AbhebenPanel.add(AbhebenT);
+        AbhebenFrame.add(AbhebenT);
         AbhebenokButton = new JButton("Fertig");
         AbhebenokButton.setBorder(null);
         AbhebenokButton.setBounds(285,320,200,50);
@@ -192,9 +192,9 @@ public class OBERFLAECHE_KUNDE implements ActionListener
         EinzahlenPanel = new JPanel();
         EinzahlenPanel.setLayout(null);
         EinzahlenT = new JTextField(10);
-        EinzahlenT.setFont(AbhebenT.getFont().deriveFont((float) 30));
+        EinzahlenT.setFont(EinzahlenT.getFont().deriveFont((float) 30));
         EinzahlenT.setBounds(325,180,200,50);
-        EinzahlenFrame.add(AbhebenT);
+        EinzahlenFrame.add(EinzahlenT);
         EinzahlenokButton = new JButton("Fertig");
         EinzahlenokButton.setBorder(null);
         EinzahlenokButton.setBounds(285,320,200,50);
@@ -308,10 +308,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
             }
             catch(NumberFormatException e)
             {
-                 betragAbheben = Integer.parseInt(AbhebenT.getText());
-                db = new DATENBANKVERBINDUNG(0);
-                db.kontostandAendern(db.kontostandGeben()-this.betragAbheben);
-                AbhebenFrame.setVisible(false);
+                
             }
         }
         else if(ae.getSource() == this.EinzahlenSchließenButton)
@@ -329,10 +326,7 @@ public class OBERFLAECHE_KUNDE implements ActionListener
             }
             catch(NumberFormatException e)
             {
-                 betragEinzahlen = Integer.parseInt(EinzahlenT.getText());
-                db = new DATENBANKVERBINDUNG(0);
-                db.kontostandAendern(db.kontostandGeben()+this.betragEinzahlen);
-                EinzahlenFrame.setVisible(false);
+                 
             }
         }
     }
