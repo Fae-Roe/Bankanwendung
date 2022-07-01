@@ -92,7 +92,7 @@ public class DATENBANKVERBINDUNG
         db.conAbfrage("SELECT `kontostand` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
-            kont = db.getInt(1);
+            kont = db.getDouble(1);
         }
         return kont;
     }
@@ -138,7 +138,7 @@ public class DATENBANKVERBINDUNG
         db.conAbfrage("SELECT `ueberziehungsrahmen` FROM `konto` WHERE kontonummer = " + kNr);
         if(db.neuerDatensatz())
         {
-            ueb = db.getInt(1);
+            ueb = db.getDouble(1);
         }
         return ueb;
     }
