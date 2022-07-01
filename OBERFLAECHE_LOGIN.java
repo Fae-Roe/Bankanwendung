@@ -164,10 +164,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                     if(PINPasswort == pin)
                     {
                         ansicht2 = new OBERFLAECHE_KUNDE(BenutzerIDText,dab);
-                        System.out.println("Login Fenster schließen");
-
                         LoginFrame.setVisible(false);
-
                     }else
 
                     {
