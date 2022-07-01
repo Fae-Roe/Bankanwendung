@@ -143,6 +143,7 @@ public class OBERFLAECHE_LOGIN implements ActionListener
         // Auswahlfenster.add(AuswahlfensterPanel);
 
     }
+
     public void actionPerformed (ActionEvent ae)
     {
         if(ae.getSource() == this.LoginButton)
@@ -205,9 +206,9 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                             LoginPanel.setVisible(false);
                         }
                     }
-                    
+
                 }
-            
+
                 else if(ae.getSource() == this.SchliessenButton)
                 {
                     System.exit(0);
@@ -215,21 +216,16 @@ public class OBERFLAECHE_LOGIN implements ActionListener
                 else if(ae.getSource() == this.LoginFehlermeldungButton)
                 {
                     LoginFehlermeldung.setVisible(false);
-                }
-
-                if(ae.getSource() == this.SchliessenButton)
-                {
-                    System.exit(0);
-                }
-                else if(ae.getSource() == this.LoginFehlermeldungButton)
-                {
-                    LoginFehlermeldung.setVisible(false);
-                }
-                else if(ae.getSource() == this.LoginFehlermeldungButton)
-                {
-                    LoginFehlermeldung.setVisible(false);
-                }
+                }                
             }
+        }
+        else if(ae.getSource() == this.SchliessenButton)
+        {
+            System.exit(0);
+        }
+        else if(ae.getSource() == this.LoginFehlermeldungButton)
+        {
+            LoginFehlermeldung.setVisible(false);
         }
     }
 }
